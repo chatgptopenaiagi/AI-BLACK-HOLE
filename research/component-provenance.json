@@ -28,5 +28,17 @@
     "source_commit": "1b074bf82a6d1a4700e06841f5ce46b90c17d9cf",
     "source_sha256": "aa38c5ee595a828072dc8a5c905af5e4ca2086809b2c10186ea7dc2e57c01bd5",
     "reuse": "Adapted; ABH acceptance must be run independently"
+  },
+  {
+    "reuse": "Adapted acceptance helper; ABH independently tested",
+    "component": "BrowserTest.cs",
+    "source_sha256": "4697bd85d6ff5c34cb333723eb5ff704001eee7b53d79b59214c7928a3d4767b",
+    "source_commit": "1b074bf82a6d1a4700e06841f5ce46b90c17d9cf"
+  },
+  {
+    "reuse": "Adapted acceptance helper; ABH independently tested",
+    "component": "Native-UI.ps1",
+    "source_sha256": "68e814f2f976d604c9c21852f4aba6b6612ebdf127ae29de62b0b93ce01b94bc",
+    "source_commit": "1b074bf82a6d1a4700e06841f5ce46b90c17d9cf"
   }
 ]

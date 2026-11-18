@@ -1,0 +1,150 @@
+{
+  "status": "VERIFIED",
+  "timestamp": "2026-11-18T23:40:22.2925059+01:00",
+  "modelSha256": "5a1395716f7913741cc51d98581b9b1228d80987a9f7d3664106742eb06bba83",
+  "checks": [
+    {
+      "name": "Invalid candidate rejected; verified profile restored",
+      "status": "VERIFIED",
+      "detail": {
+        "modelSha256": "5a1395716f7913741cc51d98581b9b1228d80987a9f7d3664106742eb06bba83",
+        "engineFingerprint": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042",
+        "hardwareFingerprint": "7c7d9c49c2c0b57b3b91439c",
+        "date": "2026-11-18T23:40:14.7492018+01:00",
+        "candidates": [
+          {
+            "profile": {
+              "name": "SAFE",
+              "backend": "cpu",
+              "threads": 6,
+              "gpuLayers": 0,
+              "context": 2048,
+              "batch": 128,
+              "uBatch": 64,
+              "parallel": 1,
+              "mmap": true,
+              "flashAttention": "auto"
+            },
+            "status": "VERIFIED",
+            "startupSeconds": 3.1406166,
+            "elapsedSeconds": 3.9926868,
+            "promptTokensPerSecond": 910.6452572108236,
+            "outputTokensPerSecond": 159.74035852836028,
+            "peakRamBytes": 229531648,
+            "peakDeviceVramMiB": 4626,
+            "answer": "A library organizes books by genre, author, and location, making it easy for patrons to find the right book for their interests. The library also has a vast collection of books, including fiction, non-fiction, children's, and adult fiction, which can be accessed through various digital platforms. Additionally, the library offers",
+            "error": null,
+            "qualityPassed": false,
+            "qualityAnswer": "7 + 5 is 12.",
+            "warmRequestSeconds": 0.1176516,
+            "benchmarkUsage": {
+              "completion_tokens": 64,
+              "prompt_tokens": 49,
+              "total_tokens": 113,
+              "prompt_tokens_details": {
+                "cached_tokens": 0
+              }
+            }
+          },
+          {
+            "profile": {
+              "name": "deliberately invalid candidate",
+              "backend": "cpu",
+              "threads": 6,
+              "gpuLayers": -1,
+              "context": 2048,
+              "batch": 128,
+              "uBatch": 64,
+              "parallel": 1,
+              "mmap": true,
+              "flashAttention": "auto"
+            },
+            "status": "FAILED",
+            "startupSeconds": 3.1406166,
+            "elapsedSeconds": 0.0002788,
+            "promptTokensPerSecond": null,
+            "outputTokensPerSecond": null,
+            "peakRamBytes": 229531648,
+            "peakDeviceVramMiB": 0,
+            "answer": null,
+            "error": "Invalid profile. This beta permits one slot and context 256–32768.",
+            "qualityPassed": false,
+            "qualityAnswer": null,
+            "warmRequestSeconds": null,
+            "benchmarkUsage": null
+          }
+        ],
+        "safe": {
+          "name": "SAFE",
+          "backend": "cpu",
+          "threads": 6,
+          "gpuLayers": 0,
+          "context": 2048,
+          "batch": 128,
+          "uBatch": 64,
+          "parallel": 1,
+          "mmap": true,
+          "flashAttention": "auto"
+        },
+        "balanced": {
+          "name": "SAFE",
+          "backend": "cpu",
+          "threads": 6,
+          "gpuLayers": 0,
+          "context": 2048,
+          "batch": 128,
+          "uBatch": 64,
+          "parallel": 1,
+          "mmap": true,
+          "flashAttention": "auto"
+        },
+        "fastestTested": {
+          "name": "SAFE",
+          "backend": "cpu",
+          "threads": 6,
+          "gpuLayers": 0,
+          "context": 2048,
+          "batch": 128,
+          "uBatch": 64,
+          "parallel": 1,
+          "mmap": true,
+          "flashAttention": "auto"
+        },
+        "conditions": "Bounded candidates; one deterministic paragraph capped at 64 output tokens plus a separate warm arithmetic request capped at 24 tokens (embedding vector for embedding models). Temperature 0, seed 42, prompt cache disabled. First load may use OS disk cache; not a controlled cold-disk benchmark. RAM: engine working set; VRAM: sampled total device usage including other applications, with synchronous samples before and after requests. Quality requires exactly 12: a tiny instruction-following sanity check, not general accuracy. Fastest only among measured candidates. KV cache and attention defaults are not exhaustively optimized."
+      }
+    },
+    {
+      "name": "Material hardware change invalidates measured profiles",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Owned engine crash detected without exiting ABH",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Owned engine restarts after crash and returns inference",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Calibration cancellation releases owned process and retains measurements",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Recovery ends with clean engine shutdown",
+      "status": "VERIFIED",
+      "detail": {
+        "timestamp": "2026-11-18T23:40:22.284209+01:00",
+        "pid": 2556,
+        "port": 58051,
+        "graceful": true,
+        "exitCode": 0,
+        "method": "CTRL_C_EVENT"
+      }
+    }
+  ],
+  "scope": "Real small local model; deliberate invalid configuration, owned-process termination, cancellation and recovery. No original model bytes modified."
+}

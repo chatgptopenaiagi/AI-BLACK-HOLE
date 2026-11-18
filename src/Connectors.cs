@@ -17,11 +17,11 @@ static class Connectors
         new("local", "ABH → registered model", ["text", "chat", "streaming", "cancellation", "usage"], ["capabilities require per-model tests"], "Available when model running", false),
         new("codex", "ABH → Codex App Server", ["stdio", "initialize", "threads", "turns", "events", "approval decisions", "interrupt"], ["cloud authentication is not copied", "custom/freeform tools through local provider"], "Optional installed executable; isolated local profile", false),
         new("codex-local-provider", "Codex → ABH", ["Responses", "function namespace mapping", "exact call IDs"], ["hosted tools", "custom tools", "general compatibility guarantee"], "Per-model acceptance required", false),
-        new("OpenAI", "ABH → OpenAI API", ["text", "usage", "timeout", "cancellation", "bounded calls"], ["streaming", "structured output", "tools"], "Disabled by default; mock acceptance only", true),
-        new("Claude", "ABH → Anthropic Messages", ["text blocks", "usage", "timeout", "cancellation", "bounded calls"], ["streaming", "structured output", "tools"], "Disabled by default; mock acceptance only", true),
-        new("Grok", "ABH → xAI Chat Completions", ["text", "usage", "timeout", "cancellation", "bounded calls"], ["streaming", "structured output", "tools"], "Disabled by default; mock acceptance only", true),
+        new("OpenAI", "ABH → OpenAI API", ["text", "usage", "timeout", "cancellation", "bounded calls", "spending reservations", "native streaming", "native tool proposals", "structured output requests"], ["automatic tool execution", "live paid-provider verification"], "Disabled by default; mock acceptance only", true),
+        new("Claude", "ABH → Anthropic Messages", ["text blocks", "usage", "timeout", "cancellation", "bounded calls", "spending reservations", "native streaming", "native tool proposals", "structured output requests"], ["automatic tool execution", "live paid-provider verification"], "Disabled by default; mock acceptance only", true),
+        new("Grok", "ABH → xAI Chat Completions", ["text", "usage", "timeout", "cancellation", "bounded calls", "spending reservations", "native streaming", "native tool proposals", "structured output requests"], ["automatic tool execution", "live paid-provider verification"], "Disabled by default; mock acceptance only", true),
         new("DRAGONHYDRA", "Read-only versioned API / explicit JSON import → local analysis", ["health", "identity", "capabilities", "analysis export"], ["database editing", "automatic writeback"], "Live service availability checked separately", false),
-        new("ARX", "Machine DNA import/export", ["schema evidence exchange", "installed product detection"], ["compatibility verdict without ARX execution"], "Schema exchange; actual scanner separately tested", false),
+        new("ARX", "Optional real scanner and Machine DNA import/export", ["isolated CLI deep scan", "schema evidence exchange", "installed product detection"], ["compatibility verdict without relevant execution"], "Optional configured Python/source; machine evidence is separate from GGUF inference", false),
         new("mcp-server", "MCP clients → ABH", ["stdio", "Streamable HTTP", "registered model tools"], ["arbitrary filesystem access", "shell execution"], "Authenticated local HTTP / process-owner stdio", false),
         new("mcp-client", "ABH → selected MCP HTTP server", ["discovery", "list tools", "explicit tool call"], ["automatic recursive tool use", "remote server commands"], "Loopback approved endpoint only", false),
         new("generic-local", "ABH → selected local endpoint", ["model listing", "chat completions", "timeout", "cancellation"], ["protocol equivalence guarantee"], "Loopback endpoint only", false)
@@ -50,6 +50,7 @@ static class Connectors
     {
         if (json.Length > 1024 * 1024) throw new ArgumentException("Machine DNA exceeds 1 MiB.");
         var value = JsonNode.Parse(json) ?? throw new ArgumentException("Invalid JSON.");
+        if (value["schema_version"]?.GetValue<string>() == "0.1" && value["scanner"]?["name"]?.GetValue<string>() == "ARX" && value["generated_at"] != null && value["machine"] is JsonObject) return value;
         foreach (string key in new[] { "generated_at", "os", "tools", "evidence" }) if (value[key] == null) throw new ArgumentException("Machine DNA is missing " + key);
         return value;
     }

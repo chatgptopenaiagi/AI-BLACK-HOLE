@@ -100,6 +100,7 @@ sealed class Engine : IInferenceEngine
     }
     public long SampleMemory()
     {
+        if (Pid <= 0) return 0;
         try { using var process = Process.GetProcessById(Pid); process.Refresh(); PeakWorkingSet = Math.Max(PeakWorkingSet, process.PeakWorkingSet64); return process.WorkingSet64; } catch { if (Ready) { Ready = false; Set("Engine exited unexpectedly. Check media connection, free memory and logs before restarting."); } return 0; }
     }
     public async Task Stop()

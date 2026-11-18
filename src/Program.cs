@@ -13,9 +13,11 @@ static class Program
             if (args.Contains("--mcp")) return McpProtocol.Stdio().GetAwaiter().GetResult();
             string? Value(string name) { int index = Array.IndexOf(args, name); return index >= 0 && index + 1 < args.Length ? args[index + 1] : null; }
             var paths = new Paths(Value("--state"));
-            if (args.Length > 0 && !args.All(x => x is "--state" || x == Value("--state"))) return Command(args, paths, Value).GetAwaiter().GetResult();
+            if (args.Length > 0 && !args.Contains("--ui-test") && !args.All(x => x is "--state" || x == Value("--state"))) return Command(args, paths, Value).GetAwaiter().GetResult();
             ApplicationConfiguration.Initialize(); var app = new ApplicationService(paths); var gateway = new Gateway(app); gateway.Start().GetAwaiter().GetResult();
-            Application.Run(new MainForm(app, gateway)); return 0;
+            var form = new MainForm(app, gateway);
+            if (args.Contains("--ui-test")) form.TestOutput = Value("--output") ?? paths.Data("ui-acceptance.json");
+            Application.Run(form); return form.TestFailed ? 1 : 0;
         }
         catch (Exception e)
         {
@@ -37,6 +39,23 @@ static class Program
         }
         else if (args.Contains("--discover")) { await app.Discover(); result = app.Status(); }
         else if (args.Contains("--self-test")) return await Acceptance.SelfTest(app, gateway, output);
+        else if (args.Contains("--arx-scan")) result = await ArxIntegration.Run(app, CancellationToken.None);
+        else if (args.Contains("--bridge-discovery")) result = await app.Providers.DiscoverLocalBridges();
+        else if (args.Contains("--recovery-test")) result = await RecoveryAcceptance.Run(app, value("--recovery-test")!);
+        else if (args.Contains("--protocol-test"))
+        {
+            await gateway.Start(); var key = app.Keys.Create("SDK protocol acceptance", 100, 100, ["mcp"]);
+            try
+            {
+                var start = new System.Diagnostics.ProcessStartInfo("node") { UseShellExecute = false, CreateNoWindow = true, RedirectStandardOutput = true, RedirectStandardError = true };
+                start.ArgumentList.Add(value("--protocol-test")!); start.Environment["ABH_MCP_URL"] = gateway.Url + "/mcp"; start.Environment["ABH_MCP_KEY"] = key.secret; start.Environment["ABH_EXE"] = Environment.ProcessPath;
+                using var process = System.Diagnostics.Process.Start(start)!; var stdout = process.StandardOutput.ReadToEndAsync(); var stderr = process.StandardError.ReadToEndAsync(); using var timeout = new CancellationTokenSource(TimeSpan.FromMinutes(2));
+                try { await process.WaitForExitAsync(timeout.Token); } catch { process.Kill(true); throw; }
+                string error = (await stderr).Replace(key.secret, "[REDACTED]"); if (process.ExitCode != 0) throw new IOException("MCP SDK acceptance failed: " + error);
+                result = JsonNode.Parse(await stdout)!;
+            }
+            finally { app.Keys.Revoke(key.record.Id); }
+        }
         else if (args.Contains("--acceptance")) return await Acceptance.Models(app, gateway, args, value, output);
         else if (args.Contains("--serve"))
         {

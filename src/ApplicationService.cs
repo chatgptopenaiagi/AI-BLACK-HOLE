@@ -17,7 +17,7 @@ sealed class Job
     public DateTimeOffset? Finished { get; set; }
     [System.Text.Json.Serialization.JsonIgnore] public CancellationTokenSource Cancel { get; } = new(TimeSpan.FromMinutes(30));
 }
-sealed record Preferences(bool AllowNetworkShares = false, string Language = "en", string[]? DiscoveryRoots = null, string[]? RuntimeExecutables = null, string? CodexExecutable = null, string? ArxExecutable = null);
+sealed record Preferences(bool AllowNetworkShares = false, string Language = "en", string[]? DiscoveryRoots = null, string[]? RuntimeExecutables = null, string? CodexExecutable = null, string? ArxExecutable = null, string? ArxSourceDirectory = null);
 sealed class ApplicationService : IAsyncDisposable
 {
     public Paths Paths { get; }
@@ -32,9 +32,12 @@ sealed class ApplicationService : IAsyncDisposable
     public ConcurrentDictionary<string, Job> Jobs { get; } = new();
     public SemaphoreSlim Inference { get; } = new(1, 1);
     readonly SemaphoreSlim mutation = new(1, 1);
+    readonly FileStream stateLease;
     DateTime lastAvailabilityCheck = DateTime.MinValue;
     public ApplicationService(Paths paths)
     {
+        try { stateLease = new FileStream(paths.Data("application.lock"), FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None); }
+        catch (IOException) { throw new IOException("Another ABH instance is using this data directory. Return to that instance or select a different --state directory."); }
         Paths = paths; Models = new(paths); Engine = new(paths); Keys = new(paths.Data("keys.json")); Vault = new(paths.VaultFile); Providers = new(Vault);
         Settings = File.Exists(paths.Data("preferences.json")) ? Json.Read<Preferences>(paths.Data("preferences.json")) : new();
     }
@@ -100,7 +103,7 @@ sealed class ApplicationService : IAsyncDisposable
         var memory = AIBlackHole.Hardware.Memory();
         return new { product = "AI BLACK HOLE", version = Paths.Version, runtime = Engine.GetRuntimeStatus(), hardware = Hardware, freeMemoryBytes = memory.free, models = Models.All(), engines = Engines.Select(e => e with { Help = "" }), jobs = Jobs.Values.OrderByDescending(j => j.Started).Take(12), connectors = Connectors.Manifests, cloud = Providers.PublicStatus() };
     }
-    public async ValueTask DisposeAsync() { foreach (var job in Jobs.Values.Where(j => j.Finished == null)) job.Cancel.Cancel(); await Engine.DisposeAsync(); Vault.Dispose(); }
+    public async ValueTask DisposeAsync() { foreach (var job in Jobs.Values.Where(j => j.Finished == null)) job.Cancel.Cancel(); await Engine.DisposeAsync(); Vault.Dispose(); stateLease.Dispose(); }
 }
 
 record CandidateResult(Profile Profile, string Status, double StartupSeconds, double ElapsedSeconds, double? PromptTokensPerSecond, double? OutputTokensPerSecond, long PeakRamBytes, int PeakDeviceVramMiB, string? Answer, string? Error, bool QualityPassed)
@@ -113,17 +116,19 @@ record CalibrationReport(string ModelSha256, string EngineFingerprint, string Ha
 static class Calibrator
 {
     public static string ReportPath(ApplicationService app, ModelRecord model) => app.Paths.Data("calibration/" + model.Id + ".json");
-    public static async Task<CalibrationReport> Run(ApplicationService app, ModelRecord model, Job job, CancellationToken token)
+    public static async Task<CalibrationReport> Run(ApplicationService app, ModelRecord model, Job job, CancellationToken token, IReadOnlyList<Profile>? selectedCandidates = null)
     {
+        await app.Engine.Stop(); token.ThrowIfCancellationRequested();
         var hardware = await Hardware.Detect(); var runtime = app.Engines.FirstOrDefault(e => e.Kind == "llama.cpp") ?? throw new ArgumentException("No supported installed engine.");
         if (model.Sha256 == null) { job.Message = "Verifying model integrity before calibration"; await app.Models.Verify(model, new Progress<double>(p => job.Progress = p / 5), token); }
         int context = (int)Math.Min(2048, model.Info!.Context > 0 ? model.Info.Context : 2048);
         var safe = Profile.Safe with { Context = context }; var candidates = new List<Profile> { safe, safe with { Name = "CPU candidate", Threads = Math.Max(1, safe.Threads / 2), Batch = 256, UBatch = 128 } };
-        if (runtime.Backends.Contains("cuda") && hardware.FreeVramMiB > 1500 && model.Info.Layers > 0)
+        if (runtime.Backends.Contains("cuda") && hardware.FreeVramMiB > 1200 && model.Info.Layers > 0)
         {
             int layers = Math.Clamp((int)((hardware.FreeVramMiB - 1024) * 1048576.0 * .7 / Math.Max(1, model.Bytes) * model.Info.Layers), 1, model.Info.Layers);
             candidates.Add(safe with { Name = "GPU candidate", Backend = "cuda", GpuLayers = layers, Context = (int)Math.Min(4096, model.Info.Context > 0 ? model.Info.Context : 2048), Batch = 256, UBatch = 128 });
         }
+        if (selectedCandidates != null) { if (selectedCandidates.Count is < 1 or > 4) throw new ArgumentException("Use 1–4 bounded candidates."); candidates = selectedCandidates.ToList(); }
         var results = new List<CandidateResult>(); Profile? lastGood = null;
         try
         {

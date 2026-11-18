@@ -1,0 +1,298 @@
+{
+  "conditions": "Other independent inference workloads were running. VRAM samples cover total device usage, not exclusive ABH memory. See each candidate report.",
+  "qwen": {
+    "modelSha256": "f5f1dd8920d417aac2718b0bda3403da274301efdd6760b4f0f4b864ff2ad57d",
+    "engineFingerprint": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042",
+    "hardwareFingerprint": "7c7d9c49c2c0b57b3b91439c",
+    "date": "2026-11-18T23:13:27.2427317+01:00",
+    "candidates": [
+      {
+        "profile": {
+          "name": "SAFE",
+          "backend": "cpu",
+          "threads": 6,
+          "gpuLayers": 0,
+          "context": 2048,
+          "batch": 128,
+          "uBatch": 64,
+          "parallel": 1,
+          "mmap": true,
+          "flashAttention": "auto"
+        },
+        "status": "VERIFIED",
+        "startupSeconds": 17.0284396,
+        "elapsedSeconds": 60.2284722,
+        "promptTokensPerSecond": 8.979194644808315,
+        "outputTokensPerSecond": 1.7831381867845177,
+        "peakRamBytes": 27767951360,
+        "peakDeviceVramMiB": 4626,
+        "answer": "Libraries typically organize books using standardized classification systems, such as the Dewey Decimal or Library of Congress schemes. These systems categorize materials by subject, author, or title, assigning unique call numbers to each item. This logical arrangement allows patrons to locate specific resources efficiently and discover related works, transforming a vast collection into an",
+        "error": null,
+        "qualityPassed": true,
+        "qualityAnswer": "12",
+        "warmRequestSeconds": 4.0330807,
+        "benchmarkUsage": {
+          "completion_tokens": 64,
+          "prompt_tokens": 32,
+          "total_tokens": 96,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "profile": {
+          "name": "CPU candidate",
+          "backend": "cpu",
+          "threads": 3,
+          "gpuLayers": 0,
+          "context": 2048,
+          "batch": 256,
+          "uBatch": 128,
+          "parallel": 1,
+          "mmap": true,
+          "flashAttention": "auto"
+        },
+        "status": "VERIFIED",
+        "startupSeconds": 14.4826888,
+        "elapsedSeconds": 61.112778,
+        "promptTokensPerSecond": 6.416873811374391,
+        "outputTokensPerSecond": 1.75947211814805,
+        "peakRamBytes": 27766706176,
+        "peakDeviceVramMiB": 4572,
+        "answer": "Libraries typically organize books using standardized classification systems, such as the Dewey Decimal or Library of Congress schemes. These systems categorize materials by subject, author, or title, assigning unique call numbers to each item. This logical arrangement allows patrons to locate specific resources efficiently and discover related works, transforming a vast collection into an",
+        "error": null,
+        "qualityPassed": true,
+        "qualityAnswer": "12",
+        "warmRequestSeconds": 5.6124506,
+        "benchmarkUsage": {
+          "completion_tokens": 64,
+          "prompt_tokens": 32,
+          "total_tokens": 96,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "profile": {
+          "name": "GPU candidate",
+          "backend": "cuda",
+          "threads": 6,
+          "gpuLayers": 1,
+          "context": 4096,
+          "batch": 256,
+          "uBatch": 128,
+          "parallel": 1,
+          "mmap": true,
+          "flashAttention": "auto"
+        },
+        "status": "VERIFIED",
+        "startupSeconds": 7.2291903,
+        "elapsedSeconds": 56.9638405,
+        "promptTokensPerSecond": 6.764285166197429,
+        "outputTokensPerSecond": 1.6008153079412177,
+        "peakRamBytes": 16852516864,
+        "peakDeviceVramMiB": 5770,
+        "answer": "Libraries typically organize books using the Dewey Decimal System or Library of Congress Classification. These systems assign unique numerical or alphanumeric codes based on subject matter, allowing patrons to locate materials efficiently. Shelves are arranged in a logical sequence, grouping related topics together. This structured approach ensures that even vast collections remain accessible, transforming chaos",
+        "error": null,
+        "qualityPassed": true,
+        "qualityAnswer": "12",
+        "warmRequestSeconds": 5.3982225,
+        "benchmarkUsage": {
+          "completion_tokens": 64,
+          "prompt_tokens": 32,
+          "total_tokens": 96,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      }
+    ],
+    "safe": {
+      "name": "SAFE",
+      "backend": "cpu",
+      "threads": 6,
+      "gpuLayers": 0,
+      "context": 2048,
+      "batch": 128,
+      "uBatch": 64,
+      "parallel": 1,
+      "mmap": true,
+      "flashAttention": "auto"
+    },
+    "balanced": {
+      "name": "GPU candidate",
+      "backend": "cuda",
+      "threads": 6,
+      "gpuLayers": 1,
+      "context": 4096,
+      "batch": 256,
+      "uBatch": 128,
+      "parallel": 1,
+      "mmap": true,
+      "flashAttention": "auto"
+    },
+    "fastestTested": {
+      "name": "SAFE",
+      "backend": "cpu",
+      "threads": 6,
+      "gpuLayers": 0,
+      "context": 2048,
+      "batch": 128,
+      "uBatch": 64,
+      "parallel": 1,
+      "mmap": true,
+      "flashAttention": "auto"
+    },
+    "conditions": "Bounded candidates; one deterministic paragraph capped at 64 output tokens plus a separate warm arithmetic request capped at 24 tokens (embedding vector for embedding models). Temperature 0, seed 42, prompt cache disabled. First load may use OS disk cache; not a controlled cold-disk benchmark. RAM: engine working set; VRAM: sampled total device usage including other applications, with synchronous samples before and after requests. Quality requires exactly 12: a tiny instruction-following sanity check, not general accuracy. Fastest only among measured candidates. KV cache and attention defaults are not exhaustively optimized."
+  },
+  "status": "VERIFIED",
+  "smol": {
+    "modelSha256": "5a1395716f7913741cc51d98581b9b1228d80987a9f7d3664106742eb06bba83",
+    "engineFingerprint": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042",
+    "hardwareFingerprint": "7c7d9c49c2c0b57b3b91439c",
+    "date": "2026-11-18T23:42:17.4212704+01:00",
+    "candidates": [
+      {
+        "profile": {
+          "name": "SAFE",
+          "backend": "cpu",
+          "threads": 6,
+          "gpuLayers": 0,
+          "context": 2048,
+          "batch": 128,
+          "uBatch": 64,
+          "parallel": 1,
+          "mmap": true,
+          "flashAttention": "auto"
+        },
+        "status": "VERIFIED",
+        "startupSeconds": 0.7136761,
+        "elapsedSeconds": 2.1192579,
+        "promptTokensPerSecond": 563.9638602750762,
+        "outputTokensPerSecond": 106.12474542694997,
+        "peakRamBytes": 229765120,
+        "peakDeviceVramMiB": 4622,
+        "answer": "A library organizes books by genre, author, and location, making it easy for patrons to find the right book for their interests. The library also has a vast collection of books, including fiction, non-fiction, children's, and adult fiction, which can be accessed through various digital platforms. Additionally, the library offers",
+        "error": null,
+        "qualityPassed": false,
+        "qualityAnswer": "7 + 5 is 12.",
+        "warmRequestSeconds": 0.1098019,
+        "benchmarkUsage": {
+          "completion_tokens": 64,
+          "prompt_tokens": 49,
+          "total_tokens": 113,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "profile": {
+          "name": "CPU candidate",
+          "backend": "cpu",
+          "threads": 3,
+          "gpuLayers": 0,
+          "context": 2048,
+          "batch": 256,
+          "uBatch": 128,
+          "parallel": 1,
+          "mmap": true,
+          "flashAttention": "auto"
+        },
+        "status": "VERIFIED",
+        "startupSeconds": 0.7311813,
+        "elapsedSeconds": 1.8124345,
+        "promptTokensPerSecond": 464.23495973472285,
+        "outputTokensPerSecond": 172.86653880030622,
+        "peakRamBytes": 229736448,
+        "peakDeviceVramMiB": 4622,
+        "answer": "A library organizes books by genre, author, and location, making it easy for patrons to find the right book for their interests. The library also has a vast collection of books, including fiction, non-fiction, children's, and adult fiction, which can be accessed through various digital platforms. Additionally, the library offers",
+        "error": null,
+        "qualityPassed": false,
+        "qualityAnswer": "7 + 5 is 12.",
+        "warmRequestSeconds": 0.1520123,
+        "benchmarkUsage": {
+          "completion_tokens": 64,
+          "prompt_tokens": 49,
+          "total_tokens": 113,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "profile": {
+          "name": "GPU candidate",
+          "backend": "cuda",
+          "threads": 6,
+          "gpuLayers": 30,
+          "context": 4096,
+          "batch": 256,
+          "uBatch": 128,
+          "parallel": 1,
+          "mmap": true,
+          "flashAttention": "auto"
+        },
+        "status": "VERIFIED",
+        "startupSeconds": 19.6455342,
+        "elapsedSeconds": 20.1620542,
+        "promptTokensPerSecond": 1512.2990031171876,
+        "outputTokensPerSecond": 336.4306312079462,
+        "peakRamBytes": 535314432,
+        "peakDeviceVramMiB": 4937,
+        "answer": "A library organizes books by genre, author, and location, making it easy for patrons to find the right book for their interests. The library also has a vast collection of books, including fiction, non-fiction, children's, and adult fiction, which can be accessed through various digital platforms. Additionally, the library offers",
+        "error": null,
+        "qualityPassed": false,
+        "qualityAnswer": "7 + 5 is 12.",
+        "warmRequestSeconds": 0.0433485,
+        "benchmarkUsage": {
+          "completion_tokens": 64,
+          "prompt_tokens": 49,
+          "total_tokens": 113,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      }
+    ],
+    "safe": {
+      "name": "SAFE",
+      "backend": "cpu",
+      "threads": 6,
+      "gpuLayers": 0,
+      "context": 2048,
+      "batch": 128,
+      "uBatch": 64,
+      "parallel": 1,
+      "mmap": true,
+      "flashAttention": "auto"
+    },
+    "balanced": {
+      "name": "GPU candidate",
+      "backend": "cuda",
+      "threads": 6,
+      "gpuLayers": 30,
+      "context": 4096,
+      "batch": 256,
+      "uBatch": 128,
+      "parallel": 1,
+      "mmap": true,
+      "flashAttention": "auto"
+    },
+    "fastestTested": {
+      "name": "GPU candidate",
+      "backend": "cuda",
+      "threads": 6,
+      "gpuLayers": 30,
+      "context": 4096,
+      "batch": 256,
+      "uBatch": 128,
+      "parallel": 1,
+      "mmap": true,
+      "flashAttention": "auto"
+    },
+    "conditions": "Bounded candidates; one deterministic paragraph capped at 64 output tokens plus a separate warm arithmetic request capped at 24 tokens (embedding vector for embedding models). Temperature 0, seed 42, prompt cache disabled. First load may use OS disk cache; not a controlled cold-disk benchmark. RAM: engine working set; VRAM: sampled total device usage including other applications, with synchronous samples before and after requests. Quality requires exactly 12: a tiny instruction-following sanity check, not general accuracy. Fastest only among measured candidates. KV cache and attention defaults are not exhaustively optimized."
+  }
+}

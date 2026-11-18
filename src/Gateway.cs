@@ -51,6 +51,10 @@ sealed class Gateway(ApplicationService service) : IAsyncDisposable
         web.MapGet("/api/status", async ctx => { if (await Auth(ctx, "models", true)) await ctx.Response.WriteAsJsonAsync(new { state = service.Status(), apiUrl = ApiUrl, codex = Codex.Status }); });
         web.MapGet("/api/keys", async ctx => { if (await Auth(ctx, "models", true)) await ctx.Response.WriteAsJsonAsync(service.Keys.List().Select(k => new { k.Id, k.Label, k.Scopes, k.Revoked, k.Created, k.RequestsPerMinute, k.UsedRequests, k.MaxTotalRequests })); });
         web.MapGet("/api/settings", async ctx => { if (await Auth(ctx, "models", true)) await ctx.Response.WriteAsJsonAsync(service.Settings); });
+        var conversations = new ConversationStore(service.Paths);
+        web.MapGet("/api/conversations", async ctx => { if (await Auth(ctx, "models", true)) await ctx.Response.WriteAsJsonAsync(conversations.List()); });
+        web.MapGet("/api/conversations/{id}", async ctx => { if (await Auth(ctx, "models", true)) await ctx.Response.WriteAsJsonAsync(conversations.Read(ctx.Request.RouteValues["id"]!.ToString()!)); });
+        web.MapPost("/api/conversations/{id}", async ctx => { if (!await Auth(ctx, "models", true)) return; conversations.Save(ctx.Request.RouteValues["id"]!.ToString()!, await Body(ctx)); await ctx.Response.WriteAsJsonAsync(new { saved = true }); });
         web.MapGet("/api/calibration/{id}", async ctx => { if (!await Auth(ctx, "models", true)) return; string path = Calibrator.ReportPath(service, service.Models.Get(ctx.Request.RouteValues["id"]!.ToString()!)); if (!File.Exists(path)) { ctx.Response.StatusCode = 404; return; } await ctx.Response.WriteAsJsonAsync(Json.Read<CalibrationReport>(path)); });
         web.MapGet("/api/diagnostics", async ctx =>
         {
@@ -62,6 +66,18 @@ sealed class Gateway(ApplicationService service) : IAsyncDisposable
         {
             if (!await Auth(ctx, "models", true)) return; var body = await Body(ctx); string action = ctx.Request.RouteValues["action"]!.ToString()!;
             object result = await Action(action, body, ctx.RequestAborted); await ctx.Response.WriteAsJsonAsync(result);
+        });
+        web.MapPost("/api/provider/stream", async ctx =>
+        {
+            if (!await Auth(ctx, "models", true)) return;
+            var body = await Body(ctx); if (body["approved"]?.GetValue<bool>() != true) throw new ArgumentException("Approve this exact outbound request first.");
+            ctx.Response.ContentType = "text/event-stream";
+            try
+            {
+                var result = await service.Providers.Exchange(S(body, "provider"), body["request"]!.AsObject(), true, async item => { await ctx.Response.WriteAsync("data: " + new JsonObject { ["event"] = item.DeepClone() }.ToJsonString() + "\n\n", ctx.RequestAborted); await ctx.Response.Body.FlushAsync(ctx.RequestAborted); }, ctx.RequestAborted);
+                await ctx.Response.WriteAsync("data: " + new JsonObject { ["result"] = result }.ToJsonString() + "\n\ndata: [DONE]\n\n", ctx.RequestAborted);
+            }
+            catch (Exception e) when (e is not OperationCanceledException) { await ctx.Response.WriteAsync("data: " + new JsonObject { ["error"] = new JsonObject { ["message"] = e is ArgumentException or IOException ? e.Message : "Provider stream failed." } }.ToJsonString() + "\n\n", ctx.RequestAborted); }
         });
         web.MapGet("/v1/models", async ctx =>
         { if (await Auth(ctx, "models")) await ctx.Response.WriteAsJsonAsync(new { @object = "list", data = service.Models.All().Where(m => !m.Info!.Auxiliary).Select(m => new { id = m.Id, @object = "model", owned_by = "local", created = 0, name = m.Info?.Name, loaded = service.Engine.Ready && service.Engine.Model?.Id == m.Id, capabilities = m.Capabilities }) }); });
@@ -78,8 +94,11 @@ sealed class Gateway(ApplicationService service) : IAsyncDisposable
         var mcp = new McpProtocol(service);
         web.MapPost("/mcp", async ctx =>
         {
-            if (!await Auth(ctx, "mcp")) return;
             var body = await Body(ctx); string version = ctx.Request.Headers["MCP-Protocol-Version"].ToString();
+            string? toolName = body["params"]?["name"]?.GetValue<string>();
+            bool mutating = body["method"]?.GetValue<string>() == "tools/call" && toolName is not ("abh_list_models" or "abh_model_info" or "abh_hardware_info" or "abh_calibration_status" or "abh_runtime_status" or "abh_connection_status");
+            if (!await Auth(ctx, mutating ? "mcp" : "mcp.read")) return;
+            if (version == "" && body["method"]?.GetValue<string>() == "initialize") version = body["params"]?["protocolVersion"]?.GetValue<string>() ?? "";
             if (!McpProtocol.Versions.Contains(version)) { ctx.Response.StatusCode = 400; await ctx.Response.WriteAsJsonAsync(McpProtocol.Error(body["id"], -32022, "Unsupported or missing protocol version.", new { supportedVersions = McpProtocol.Versions })); return; }
             if (!ctx.Request.Headers.Accept.ToString().Contains("application/json") || !ctx.Request.Headers.Accept.ToString().Contains("text/event-stream")) { ctx.Response.StatusCode = 406; return; }
             if (version == McpProtocol.Current)
@@ -122,9 +141,11 @@ sealed class Gateway(ApplicationService service) : IAsyncDisposable
             case "provider-save": service.Vault.Put(body.Deserialize<Credential>(Json.Options)!); return service.Providers.PublicStatus();
             case "provider-remove": service.Vault.Remove(S(body, "provider")); return service.Providers.PublicStatus();
             case "provider-call": if (body["approved"]?.GetValue<bool>() != true) throw new ArgumentException("Explicit approval is required for this exact outbound content."); return await service.Providers.Call(S(body, "provider"), S(body, "prompt"), token);
+            case "provider-request": if (body["approved"]?.GetValue<bool>() != true) throw new ArgumentException("Explicit approval is required for this exact outbound request."); return await service.Providers.Exchange(S(body, "provider"), body["request"]!.AsObject(), false, null, token);
             case "dragon-discover": return await service.Providers.DiscoverLocalBridges();
             case "dragon-capabilities": return await service.Providers.Dragon(true);
             case "arx-export": return Connectors.ArxEvidence(await Hardware.Detect());
+            case "arx-run": return service.Submit("ARX", async (_, ct) => await ArxIntegration.Run(service, ct), false);
             case "arx-import": var dna = Connectors.ImportArx(S(body, "json")); Json.Save(service.Paths.Data("arx-import.json"), dna); return dna;
             case "generic-call": return await Connectors.Generic(S(body, "endpoint"), S(body, "model"), S(body, "prompt"), token);
             case "mcp-client": return await McpProtocol.ClientCall(S(body, "endpoint"), S(body, "key"), S(body, "method"), body["params"]?.AsObject() ?? new(), token);

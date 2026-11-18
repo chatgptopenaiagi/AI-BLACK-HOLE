@@ -15,7 +15,7 @@ sealed class KeyStore
     {
         if (string.IsNullOrWhiteSpace(label) || label.Length > 80 || limit is < 1 or > 600) throw new ArgumentException("Choose a label (1–80 characters) and 1–600 requests/minute.");
         scopes ??= ["models", "chat", "responses"];
-        if (maxTotalRequests is < 0 or > 1000 || scopes.Length == 0 || scopes.Any(s => s is not ("models" or "chat" or "responses" or "runtime" or "calibration" or "tasks" or "mcp"))) throw new ArgumentException("Invalid total request budget or API scopes.");
+        if (maxTotalRequests is < 0 or > 1000 || scopes.Length == 0 || scopes.Any(s => s is not ("models" or "chat" or "responses" or "runtime" or "calibration" or "tasks" or "mcp" or "mcp.read"))) throw new ArgumentException("Invalid total request budget or API scopes.");
         lock (sync)
         {
             string secret = "abh_" + Json.Secret();
@@ -42,7 +42,7 @@ sealed class KeyStore
         {
             var key = keys.FirstOrDefault(k => !k.Revoked && Json.Equal(k.Hash, Json.Hash(secret)));
             if (key == null) return 401;
-            if (!key.Scopes.Contains(scope)) return 403;
+            if (!key.Scopes.Contains(scope) && !(scope == "mcp.read" && key.Scopes.Contains("mcp"))) return 403;
             if (key.MaxTotalRequests > 0 && key.UsedRequests >= key.MaxTotalRequests) return 429;
             var now = DateTimeOffset.UtcNow;
             var window = windows.GetValueOrDefault(key.Id);
@@ -59,7 +59,7 @@ sealed class KeyStore
 }
 
 record VaultEnvelope(int Version, string Kdf, int Iterations, string Salt, string Nonce, string Tag, string Ciphertext);
-record Credential(string Provider, string Model, string Secret, bool Enabled, int MaxTokens = 256, int MaxCallsPerSession = 3);
+record Credential(string Provider, string Model, string Secret, bool Enabled, int MaxTokens = 256, int MaxCallsPerSession = 3, decimal SessionBudgetUsd = 0, decimal RequestReservationUsd = 0);
 sealed class Vault : IDisposable
 {
     const int Iterations = 600000;

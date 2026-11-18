@@ -17,3 +17,4 @@ mission-state.json
 *.private.*
 node_modules/
 research/codex-schema/
+optional/

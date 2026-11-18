@@ -1,0 +1,508 @@
+{
+  "status": "VERIFIED",
+  "failed": 0,
+  "checks": [
+    {
+      "name": "GGUF metadata and tensor descriptor",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Registry direct file with Unicode and spaces",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Full fingerprint and cached identity",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Atomic registry persistence",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Missing model marked unavailable",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Reconnection requires verified exact content",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Different model never silently selected",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Changed model invalidates fingerprint",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Registry removal preserves model file",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Corrupted header rejected",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Unsupported GGUF version rejected",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Network paths require opt-in",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Hash cancellation",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Bounded selected-folder discovery",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Invalid GPU profile rejected",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Low-memory configuration refused",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Uninstalled GPU backend refused",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Scoped key authorization",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Key rotation invalidates previous secret",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Key revocation",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Wrong vault passphrase rejected",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Portable encrypted vault round trip",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "OpenAI native protocol mock",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "OpenAI session cost exposure bounded by call limit",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Claude native protocol mock",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Claude session cost exposure bounded by call limit",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Grok native protocol mock",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Grok session cost exposure bounded by call limit",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "OpenAI native structured-output request and tool ID",
+      "status": "VERIFIED",
+      "detail": {
+        "mock": true,
+        "response": {
+          "model": "mock-model",
+          "choices": [
+            {
+              "message": {
+                "role": "assistant",
+                "content": null,
+                "tool_calls": [
+                  {
+                    "id": "call_exact_17",
+                    "type": "function",
+                    "function": {
+                      "name": "sum",
+                      "arguments": "{\"a\":2}"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 5,
+            "completion_tokens": 4
+          }
+        }
+      }
+    },
+    {
+      "name": "OpenAI native tool-result round trip preserves exact ID",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "OpenAI SSE text, usage and tool fragments",
+      "status": "VERIFIED",
+      "detail": {
+        "mock": true,
+        "stream": {
+          "provider": "OpenAI",
+          "model": "mock-model",
+          "text": "OK",
+          "events": [
+            {
+              "choices": [
+                {
+                  "delta": {
+                    "content": "OK",
+                    "tool_calls": [
+                      {
+                        "index": 0,
+                        "id": "call_exact_17",
+                        "type": "function",
+                        "function": {
+                          "name": "sum",
+                          "arguments": "{\"a\":2}"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "choices": [
+                {
+                  "delta": {},
+                  "finish_reason": "tool_calls"
+                }
+              ],
+              "usage": {
+                "prompt_tokens": 5,
+                "completion_tokens": 4
+              }
+            }
+          ],
+          "complete": true,
+          "provenance": "External provider stream; tool IDs and argument fragments retained verbatim; no tools executed"
+        }
+      }
+    },
+    {
+      "name": "OpenAI provider HTTP failure isolated",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "OpenAI cancelled request makes no outbound call",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "OpenAI spending reservation blocks before transport",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Claude native structured-output request and tool ID",
+      "status": "VERIFIED",
+      "detail": {
+        "mock": true,
+        "response": {
+          "model": "mock-model",
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "call_exact_17",
+              "name": "sum",
+              "input": {
+                "a": 2
+              }
+            }
+          ],
+          "usage": {
+            "input_tokens": 5,
+            "output_tokens": 4
+          }
+        }
+      }
+    },
+    {
+      "name": "Claude native tool-result round trip preserves exact ID",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Claude SSE text, usage and tool fragments",
+      "status": "VERIFIED",
+      "detail": {
+        "mock": true,
+        "stream": {
+          "provider": "Claude",
+          "model": "mock-model",
+          "text": "OK",
+          "events": [
+            {
+              "type": "content_block_start",
+              "index": 0,
+              "content_block": {
+                "type": "tool_use",
+                "id": "call_exact_17",
+                "name": "sum",
+                "input": {}
+              }
+            },
+            {
+              "type": "content_block_delta",
+              "index": 0,
+              "delta": {
+                "type": "input_json_delta",
+                "partial_json": "{\"a\":2}"
+              }
+            },
+            {
+              "type": "content_block_delta",
+              "index": 1,
+              "delta": {
+                "type": "text_delta",
+                "text": "OK"
+              }
+            },
+            {
+              "type": "message_delta",
+              "usage": {
+                "output_tokens": 4
+              }
+            },
+            {
+              "type": "message_stop"
+            }
+          ],
+          "complete": true,
+          "provenance": "External provider stream; tool IDs and argument fragments retained verbatim; no tools executed"
+        }
+      }
+    },
+    {
+      "name": "Claude provider HTTP failure isolated",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Claude cancelled request makes no outbound call",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Claude spending reservation blocks before transport",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Grok native structured-output request and tool ID",
+      "status": "VERIFIED",
+      "detail": {
+        "mock": true,
+        "response": {
+          "model": "mock-model",
+          "choices": [
+            {
+              "message": {
+                "role": "assistant",
+                "content": null,
+                "tool_calls": [
+                  {
+                    "id": "call_exact_17",
+                    "type": "function",
+                    "function": {
+                      "name": "sum",
+                      "arguments": "{\"a\":2}"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 5,
+            "completion_tokens": 4
+          }
+        }
+      }
+    },
+    {
+      "name": "Grok native tool-result round trip preserves exact ID",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Grok SSE text, usage and tool fragments",
+      "status": "VERIFIED",
+      "detail": {
+        "mock": true,
+        "stream": {
+          "provider": "Grok",
+          "model": "mock-model",
+          "text": "OK",
+          "events": [
+            {
+              "choices": [
+                {
+                  "delta": {
+                    "content": "OK",
+                    "tool_calls": [
+                      {
+                        "index": 0,
+                        "id": "call_exact_17",
+                        "type": "function",
+                        "function": {
+                          "name": "sum",
+                          "arguments": "{\"a\":2}"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "choices": [
+                {
+                  "delta": {},
+                  "finish_reason": "tool_calls"
+                }
+              ],
+              "usage": {
+                "prompt_tokens": 5,
+                "completion_tokens": 4
+              }
+            }
+          ],
+          "complete": true,
+          "provenance": "External provider stream; tool IDs and argument fragments retained verbatim; no tools executed"
+        }
+      }
+    },
+    {
+      "name": "Grok provider HTTP failure isolated",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Grok cancelled request makes no outbound call",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Grok spending reservation blocks before transport",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Namespaced function preserves call ID and arguments",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Unsupported custom tools explicitly rejected",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Late system message never promoted",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "HTTP unauthorized request rejected",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Authenticated model listing",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Scoped key cannot access browser administration",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Foreign browser origin rejected",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Current MCP HTTP tools list",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "MCP HTTP tool execution",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "MCP rejects arbitrary path arguments",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Automatic workflow rejects unapproved cloud agent",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Workflow enforces finite step limit",
+      "status": "VERIFIED",
+      "detail": null
+    },
+    {
+      "name": "Parallel evidence workflow completes within limits",
+      "status": "VERIFIED",
+      "detail": null
+    }
+  ],
+  "timestamp": "2026-11-18T23:29:51.885437+01:00",
+  "scope": "Synthetic fixtures, real local HTTP and provider mock transports. No real inference or paid provider call in this suite."
+}

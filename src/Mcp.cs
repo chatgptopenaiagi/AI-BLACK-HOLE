@@ -95,6 +95,7 @@ sealed class McpProtocol(ApplicationService app)
             JsonObject request; try { request = JsonNode.Parse(line)!.AsObject(); } catch { await output.WriteLineAsync(Error(null, -32700, "Invalid JSON.").ToJsonString()); continue; }
             if (request["method"]?.GetValue<string>() == "notifications/cancelled") { string? id = request["params"]?["requestId"]?.ToJsonString(); if (id != null && active.TryGetValue(id, out var cancel)) cancel.Cancel(); continue; }
             string? requestId = request["id"]?.ToJsonString(); var token = new CancellationTokenSource(TimeSpan.FromMinutes(5)); if (requestId != null) active[requestId] = token;
+            if (workers.Count >= 32) { if (requestId != null) { active.TryRemove(requestId, out _); await gate.WaitAsync(); try { await output.WriteLineAsync(Error(request["id"], -32603, "Concurrent request limit reached.").ToJsonString()); } finally { gate.Release(); } } token.Dispose(); continue; }
             workers.Add(Task.Run(async () =>
             {
                 try

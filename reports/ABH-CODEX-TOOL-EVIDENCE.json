@@ -1,0 +1,106 @@
+{
+  "status": "VERIFIED",
+  "callCount": 3,
+  "shutdown": {
+    "clean": true,
+    "pid": 28100,
+    "port": 57708,
+    "processExited": true,
+    "detail": {
+      "timestamp": "2026-11-18T23:21:09.7538255+01:00",
+      "pid": 28100,
+      "port": 57708,
+      "graceful": true,
+      "exitCode": 0,
+      "method": "CTRL_C_EVENT"
+    }
+  },
+  "exactlyOnceInstruction": "PARTIAL: three calls despite exactly-once prompt",
+  "installedVersion": "0.169.0",
+  "matchingResults": 3,
+  "expected": {
+    "pid": 28100,
+    "port": 57708,
+    "modelId": "02cdc514da334681"
+  },
+  "calls": [
+    {
+      "type": "mcpToolCall",
+      "id": "call_0jjtAykvdCzbtqul56LlRUGHMcAYta6Y",
+      "server": "abh_runtime",
+      "tool": "abh_runtime_status",
+      "status": "completed",
+      "arguments": {},
+      "appContext": null,
+      "mcpAppUi": null,
+      "pluginId": null,
+      "readOnlyHint": true,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\r\n  \"modelId\": \"02cdc514da334681\",\r\n  \"modelName\": \"Qwen3.8 27B 0814\",\r\n  \"ready\": true,\r\n  \"status\": \"Ready \\u00B7 CUDA \\u00B7 4096 context \\u00B7 1 GPU layers\",\r\n  \"pid\": 28100,\r\n  \"port\": 57708,\r\n  \"profile\": {\r\n    \"name\": \"GPU candidate\",\r\n    \"backend\": \"cuda\",\r\n    \"threads\": 6,\r\n    \"gpuLayers\": 1,\r\n    \"context\": 4096,\r\n    \"batch\": 256,\r\n    \"uBatch\": 128,\r\n    \"parallel\": 1,\r\n    \"mmap\": true,\r\n    \"flashAttention\": \"auto\"\r\n  },\r\n  \"startupSeconds\": 16.0864471,\r\n  \"memoryBytes\": 17395286016,\r\n  \"peakWorkingSet\": 17395286016,\r\n  \"engineFingerprint\": \"134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042\"\r\n}"
+          }
+        ],
+        "structuredContent": null,
+        "_meta": null
+      },
+      "error": null,
+      "durationMs": 26,
+      "startedAtMs": 1795040358321,
+      "completedAtMs": 1795040358348
+    },
+    {
+      "type": "mcpToolCall",
+      "id": "call_l9OCRdrGL835FDHxwFdvDYb8jLxfjG8c",
+      "server": "abh_runtime",
+      "tool": "abh_runtime_status",
+      "status": "completed",
+      "arguments": {},
+      "appContext": null,
+      "mcpAppUi": null,
+      "pluginId": null,
+      "readOnlyHint": true,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\r\n  \"modelId\": \"02cdc514da334681\",\r\n  \"modelName\": \"Qwen3.8 27B 0814\",\r\n  \"ready\": true,\r\n  \"status\": \"Ready \\u00B7 CUDA \\u00B7 4096 context \\u00B7 1 GPU layers\",\r\n  \"pid\": 28100,\r\n  \"port\": 57708,\r\n  \"profile\": {\r\n    \"name\": \"GPU candidate\",\r\n    \"backend\": \"cuda\",\r\n    \"threads\": 6,\r\n    \"gpuLayers\": 1,\r\n    \"context\": 4096,\r\n    \"batch\": 256,\r\n    \"uBatch\": 128,\r\n    \"parallel\": 1,\r\n    \"mmap\": true,\r\n    \"flashAttention\": \"auto\"\r\n  },\r\n  \"startupSeconds\": 16.0864471,\r\n  \"memoryBytes\": 17709465600,\r\n  \"peakWorkingSet\": 17709498368,\r\n  \"engineFingerprint\": \"134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042\"\r\n}"
+          }
+        ],
+        "structuredContent": null,
+        "_meta": null
+      },
+      "error": null,
+      "durationMs": 8,
+      "startedAtMs": 1795040390225,
+      "completedAtMs": 1795040390233
+    },
+    {
+      "type": "mcpToolCall",
+      "id": "call_wL1pfVV1MRIeqmzh9CEABCukLlxTMV8B",
+      "server": "abh_runtime",
+      "tool": "abh_runtime_status",
+      "status": "completed",
+      "arguments": {},
+      "appContext": null,
+      "mcpAppUi": null,
+      "pluginId": null,
+      "readOnlyHint": true,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\r\n  \"modelId\": \"02cdc514da334681\",\r\n  \"modelName\": \"Qwen3.8 27B 0814\",\r\n  \"ready\": true,\r\n  \"status\": \"Ready \\u00B7 CUDA \\u00B7 4096 context \\u00B7 1 GPU layers\",\r\n  \"pid\": 28100,\r\n  \"port\": 57708,\r\n  \"profile\": {\r\n    \"name\": \"GPU candidate\",\r\n    \"backend\": \"cuda\",\r\n    \"threads\": 6,\r\n    \"gpuLayers\": 1,\r\n    \"context\": 4096,\r\n    \"batch\": 256,\r\n    \"uBatch\": 128,\r\n    \"parallel\": 1,\r\n    \"mmap\": true,\r\n    \"flashAttention\": \"auto\"\r\n  },\r\n  \"startupSeconds\": 16.0864471,\r\n  \"memoryBytes\": 18023268352,\r\n  \"peakWorkingSet\": 18023268352,\r\n  \"engineFingerprint\": \"134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042\"\r\n}"
+          }
+        ],
+        "structuredContent": null,
+        "_meta": null
+      },
+      "error": null,
+      "durationMs": 8,
+      "startedAtMs": 1795040422056,
+      "completedAtMs": 1795040422065
+    }
+  ]
+}

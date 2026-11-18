@@ -50,10 +50,11 @@ static class Acceptance
         using (var vault = new Vault(Path.Combine(dir, "mock.vault")))
         {
             vault.Unlock("ABH provider mock passphrase");
-            foreach (string name in new[] { "OpenAI", "Claude", "Grok" }) vault.Put(new(name, "mock-model", "mock-secret", true, 64, 1));
+            foreach (string name in new[] { "OpenAI", "Claude", "Grok" }) vault.Put(new(name, "mock-model", "mock-secret", true, 64, 1, 1m, .1m));
             var mock = new ProviderMock(); var providers = new Providers(vault, mock);
             foreach (string name in new[] { "OpenAI", "Claude", "Grok" }) { var result = await providers.Call(name, "Synthetic test input"); Check(name + " native protocol mock", result.Text == "MOCK_OK" && mock.Valid); await Reject(name + " session cost exposure bounded by call limit", () => providers.Call(name, "second request")); }
         }
+        await ProviderAcceptance.Run(app.Paths, Check);
         var body = JsonNode.Parse("""{"tools":[{"type":"namespace","name":"engineering","tools":[{"type":"function","name":"sum","parameters":{"type":"object"}}]}],"input":[{"role":"developer","content":"test"},{"role":"user","content":"test"}]}""")!.AsObject();
         var mapping = ResponseNamespaces.Prepare(body); ResponseCompatibility.Normalize(body); string alias = body["tools"]![0]!["name"]!.GetValue<string>();
         var call = new JsonObject { ["type"] = "function_call", ["name"] = alias, ["call_id"] = "preserve-exact-17", ["arguments"] = "{\"a\":1}" }; mapping.Restore(call); Check("Namespaced function preserves call ID and arguments", call["name"]!.GetValue<string>() == "sum" && call["namespace"]!.GetValue<string>() == "engineering" && call["call_id"]!.GetValue<string>() == "preserve-exact-17" && call["arguments"]!.GetValue<string>() == "{\"a\":1}");
@@ -107,7 +108,15 @@ static class Acceptance
                         string workspace = app.Paths.Data("codex-acceptance-workspace"); Directory.CreateDirectory(workspace);
                         var turn = await gateway.Codex.Task(workspace, "Write a Python function add(a, b) that returns their sum. Reply with only the function definition. Do not call tools.", deadline.Token);
                         while (!Json.Text(gateway.Codex.Status).Contains("turn/completed")) await Task.Delay(500, deadline.Token);
-                        codex = new { handshake, turn, final = gateway.Codex.Status, scope = "Actual local App Server coding proposal; no claim of tool execution" };
+                        var coding = JsonSerializer.SerializeToNode(gateway.Codex.Status)!;
+                        var toolTurn = await gateway.Codex.Task(workspace, "Call the abh_runtime_status MCP tool exactly once. Return a JSON object containing the exact pid, port and modelId from its result. Do not guess these values or use any other tool.", deadline.Token);
+                        while (!Json.Text(gateway.Codex.Status).Contains("\"id\": \"" + gateway.Codex.TurnId + "\",\n        \"items\""))
+                        {
+                            var snapshot = JsonSerializer.SerializeToNode(gateway.Codex.Status)!;
+                            if (snapshot["events"]!.AsArray().Any(e => e?["method"]?.GetValue<string>() == "turn/completed" && e["params"]?["turn"]?["id"]?.GetValue<string>() == gateway.Codex.TurnId)) break;
+                            await Task.Delay(500, deadline.Token);
+                        }
+                        codex = new { handshake, turn, coding, toolTurn, final = gateway.Codex.Status, expectedRuntime = new { app.Engine.Pid, app.Engine.Port, modelId = model.Id }, scope = "Actual local App Server coding proposal and bounded runtime MCP tool round trip; results require event verification" };
                     }
                     catch (Exception e) { codex = new { status = "PARTIAL", error = e.Message, events = gateway.Codex.Status }; }
                     finally { await gateway.Codex.DisposeAsync(); }
@@ -116,7 +125,7 @@ static class Acceptance
                 int pid = app.Engine.Pid, port = app.Engine.Port; double startup = app.Engine.StartupSeconds; var profile = app.Engine.Active;
                 await app.Engine.Stop(); var stopped = JsonNode.Parse(File.ReadAllText(app.Paths.Data("last-stop.json"))); bool clean = stopped?["graceful"]?.GetValue<bool>() == true;
                 bool alive; try { using var p = Process.GetProcessById(pid); alive = !p.HasExited; } catch { alive = false; }
-                bool pass = inference && streaming && clean && !alive; if (!pass) failed++;
+                bool browserPassed = browser == null || JsonSerializer.SerializeToNode(browser)!["status"]?.GetValue<string>() == "PASS"; bool pass = inference && streaming && responseReply.IsSuccessStatusCode && browserPassed && clean && !alive; if (!pass) failed++;
                 model.State = pass ? "TESTED" : "ERROR"; if (inference) { model.Capabilities["CHAT"] = "TESTED"; model.Capabilities["TEXT_GENERATION"] = "TESTED"; } app.Models.Save();
                 reports.Add(new { status = pass ? "VERIFIED" : "FAILED", model = new { model.Id, name = model.Info?.Name, architecture = model.Info?.Architecture, model.Bytes, model.Sha256 }, engine = app.Engines.First().Fingerprint, profile, startup, inference = new { success = inference, text, usage = data?["usage"], timings = data?["timings"], arithmeticSanityPassed = text?.Trim().Trim('.') == "12", intelligenceClaim = "No general intelligence or accuracy claim" }, streaming, responses = new { httpStatus = (int)responseReply.StatusCode, body = JsonNode.Parse(responses) }, calibration, browser, codex, shutdown = new { clean, pid, port, processExited = !alive, detail = stopped } });
                 Json.Save(output ?? app.Paths.Data("model-acceptance.json"), new { status = failed == 0 ? "VERIFIED_SO_FAR" : "FAILED", reports });

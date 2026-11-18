@@ -1,0 +1,40 @@
+name: Windows core verification
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  core:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Build self-contained application core
+        shell: pwsh
+        run: ./scripts/Build.ps1 -OutputDirectory "$env:RUNNER_TEMP/abh-core"
+      - name: Synthetic, security and provider mock tests
+        shell: pwsh
+        run: |
+          $p=Start-Process -FilePath "$env:RUNNER_TEMP/abh-core/AI-BLACK-HOLE.exe" -ArgumentList @('--self-test','--state',"$env:RUNNER_TEMP/abh-tests",'--output',"$env:RUNNER_TEMP/security.json") -Wait -PassThru -WindowStyle Hidden
+          if($p.ExitCode -ne 0){throw 'Self-test failed'}
+      - name: Official MCP SDK interoperability
+        shell: pwsh
+        run: |
+          npm ci --prefix tests --ignore-scripts
+          if($LASTEXITCODE -ne 0){throw 'SDK restore failed'}
+          $p=Start-Process -FilePath "$env:RUNNER_TEMP/abh-core/AI-BLACK-HOLE.exe" -ArgumentList @('--protocol-test',"$env:GITHUB_WORKSPACE/tests/mcp-client.mjs",'--state',"$env:RUNNER_TEMP/abh-mcp",'--output',"$env:RUNNER_TEMP/mcp.json") -Wait -PassThru -WindowStyle Hidden
+          if($p.ExitCode -ne 0){throw 'MCP SDK test failed'}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-core-test-results
+          path: |
+            ${{ runner.temp }}/security.json
+            ${{ runner.temp }}/mcp.json

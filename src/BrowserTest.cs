@@ -46,7 +46,7 @@ static class BrowserTest
             bool ready = false;
             for (int i = 0; i < 50; i++) { ready = (await Evaluate("!!document.getElementById('online') && document.getElementById('online').textContent === 'MODEL READY'"))?.GetValue<bool>() == true; if (ready) break; await Task.Delay(300, timeout.Token); }
             if (!ready) throw new IOException("Packaged browser UI did not reach Ready.");
-            await Evaluate("document.getElementById('prompt').value='Reply with only the answer: 9 plus 6';document.getElementById('chat-form').requestSubmit();true");
+            await Evaluate("document.getElementById('new-chat').click();document.getElementById('prompt').value='Reply with only the answer: 9 plus 6';document.getElementById('chat-form').requestSubmit();true");
             string reply = "";
             for (int i = 0; i < 180; i++)
             {
@@ -55,9 +55,12 @@ static class BrowserTest
                 if (finished) break; await Task.Delay(500, timeout.Token);
             }
             bool erased = (await Evaluate("location.hash === ''"))?.GetValue<bool>() == true;
+            var navigation = await Evaluate("(async()=>{const pages=['home','models','hardware','calibration','chat','api','agents','workflows','diagnostics','settings','help','about'];const results=[];for(const page of pages){navigate(page);await new Promise(r=>setTimeout(r,80));results.push({page,visible:!document.getElementById(page).hidden});}navigate('chat');return results;})()");
+            bool allPages = navigation?.AsArray().All(p => p?["visible"]?.GetValue<bool>() == true) == true;
+            bool persisted = (await Evaluate("(async()=>{await saveChat();const saved=await api('/api/conversations/'+conversationId);return saved.messages.some(m=>m.role==='assistant'&&m.content.length>0);})()"))?.GetValue<bool>() == true;
             var screenshot = await Call("Page.captureScreenshot", new { format = "png", captureBeyondViewport = false });
             string image = paths.Data("browser-acceptance.png"); await File.WriteAllBytesAsync(image, Convert.FromBase64String(screenshot!["data"]!.GetValue<string>()));
-            var result = new { status = !string.IsNullOrWhiteSpace(reply) && erased ? "PASS" : "FAIL", reply, launchFragmentErased = erased, screenshot = image, browser = "installed Edge in an isolated test profile", title = (await Evaluate("document.title"))?.GetValue<string>() };
+            var result = new { status = !string.IsNullOrWhiteSpace(reply) && erased && allPages && persisted ? "PASS" : "FAIL", reply, launchFragmentErased = erased, navigation, conversationPersisted = persisted, screenshot = image, browser = "installed Edge in an isolated test profile", title = (await Evaluate("document.title"))?.GetValue<string>() };
             Json.Save(paths.Data("browser-acceptance.json"), result);
             try { await Call("Browser.close", new { }); } catch (WebSocketException) { } catch (IOException) { } return result;
         }

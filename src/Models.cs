@@ -108,18 +108,25 @@ sealed record ModelRecord
     public string? Repository { get; set; }
     public string? Revision { get; set; }
     public string[] MatchingModelIds { get; set; } = [];
+    public string? PortableRelativePath { get; set; }
     public override string ToString() => $"{(string.IsNullOrEmpty(Info?.Name) ? OriginalFileName : Info.Name)} · {Info?.Quantization} · {Bytes / 1073741824.0:F2} GiB · {State}";
 }
 record RegistryDocument(int Schema, List<ModelRecord> Models);
 
 sealed class ModelRegistry
 {
-    readonly string file; readonly object sync = new(); List<ModelRecord> models;
+    readonly string file; readonly string root; readonly object sync = new(); List<ModelRecord> models;
     public ModelRegistry(Paths paths)
     {
-        file = paths.Data("models.json");
+        file = paths.Data("models.json"); root = Path.GetFullPath(paths.Root);
         if (!File.Exists(file)) models = [];
         else { var doc = Json.Read<RegistryDocument>(file); if (doc.Schema != 1) throw new IOException("Unknown registry schema. Backup retained; migration required."); models = doc.Models; }
+        foreach (var model in models.Where(m => m.PortableRelativePath != null))
+        {
+            string resolved = Path.GetFullPath(Path.Combine(root, model.PortableRelativePath!));
+            if (!resolved.StartsWith(root.TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase)) throw new IOException("Portable model path escapes the application folder.");
+            model.Path = resolved; model.Shards = model.Info == null ? [resolved] : FindShards(resolved, model.Info);
+        }
     }
     public ModelRecord[] All() { lock (sync) return models.ToArray(); }
     public ModelRecord Get(string id) { lock (sync) return models.SingleOrDefault(m => m.Id == id) ?? throw new ArgumentException("Unknown registered model."); }
@@ -144,6 +151,7 @@ sealed class ModelRegistry
             if (old != null && old.Bytes == fileInfo.Length && old.LastWriteUtc == fileInfo.LastWriteTimeUtc && old.QuickFingerprint == quick) return old;
             var model = old ?? new ModelRecord();
             model.Path = path; model.LastKnownLocation = path; model.OriginalFileName = fileInfo.Name; model.Bytes = fileInfo.Length; model.LastWriteUtc = fileInfo.LastWriteTimeUtc;
+            model.PortableRelativePath = path.StartsWith(root.TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase) ? System.IO.Path.GetRelativePath(root, path) : null;
             model.QuickFingerprint = quick; model.Sha256 = null; model.LastVerification = null; model.VerifiedEngine = null; model.Info = info;
             model.VolumeIdentity = VolumeId(path); model.VolumeRelativePath = System.IO.Path.GetRelativePath(System.IO.Path.GetPathRoot(path)!, path);
             model.State = info.Auxiliary ? "UNSUPPORTED" : "COMPATIBILITY UNKNOWN"; model.Error = info.Auxiliary ? "Auxiliary/projector file; not a standalone text model." : null;
