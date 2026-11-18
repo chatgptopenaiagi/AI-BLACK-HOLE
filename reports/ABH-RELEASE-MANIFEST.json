@@ -3,41 +3,42 @@
   "product": "AI BLACK HOLE",
   "version": "2.0.0-beta.2",
   "status": "VERIFIED",
-  "timestamp": "2026-11-18T23:02:39.7297704Z",
+  "timestamp": "2026-11-18T23:34:37.5933513Z",
   "build": {
     "version": "2.0.0-beta.2",
-    "timestamp_utc": "2026-11-18T22:46:26.3250028Z",
-    "source_commit": "c23f3249330629f4d604755aa008ba2dd4831288",
+    "timestamp_utc": "2026-11-18T23:23:57.3969142Z",
+    "source_commit": "dd072a4266694caec53985eab0b375b87fabd03f",
     "source_dirty": false,
-    "executable_sha256": "9d9e72f4e5b6d86ff8baa3309e2b0b938958cc6564ae54686b3e55e0ee5466fc",
+    "executable_sha256": "1302d7b56a6d719a1029ca162323ed49fd723b5003a6ace9f7db38f3bfe63e10",
     "sdk": "8.0.427",
     "self_contained": true
   },
   "assets": [
     {
       "name": "AI-BLACK-HOLE-2.0.0-beta.2-WINDOWS-X64-PORTABLE.zip",
-      "bytes": 1030002808,
-      "sha256": "15dd0e114babb7eabfa130a9296461a00da27874ce9b31d85b92e97c0bc85182"
+      "bytes": 1030017874,
+      "sha256": "1508961f599bd380805cb8245b8c0b8df90d2f046fb41ac5f7d411040996335b"
     },
     {
       "name": "AI-BLACK-HOLE-2.0.0-beta.2-SETUP.exe",
-      "bytes": 1006725798,
-      "sha256": "12c462df17455e12c7eeb63c628620bfafcdfe7c49cbb787c9a4e4cbbdee3212"
+      "bytes": 1006734585,
+      "sha256": "8436f4cc145023e7f56a85a77ada6c9b794bd4a42141d31fe928e71d4f1656f7"
     },
     {
       "name": "AI-BLACK-HOLE-2.0.0-beta.2-FILES.json",
-      "bytes": 17362,
-      "sha256": "897d7d5b373cbf88758aea988848a325e51e636b0fdfd9983349dceac4a0cf9e"
+      "bytes": 18659,
+      "sha256": "ddd027cd2086f35bdef83c38a3332ee3fbff10dddd9e8d99c7bd9a4f259794ea"
     }
   ],
   "archive_validation": {
-    "extracted_files": 110,
-    "timestamp": "2026-11-18T22:58:54.9455297Z",
     "status": "VERIFIED",
-    "real_inference": "ABH-ARCHIVE-INFERENCE.json",
-    "global_dotnet_root_disabled": true,
+    "timestamp": "2026-11-18T23:34:34.6314892Z",
+    "executable_sha256": "1302d7b56a6d719a1029ca162323ed49fd723b5003a6ace9f7db38f3bfe63e10",
+    "extracted_files": 118,
     "all_sha256_match": true,
-    "archive_integrity": "7-Zip test passed"
+    "archive_integrity": "7-Zip CRC test passed",
+    "real_inference": "ABH-ARCHIVE-INFERENCE.json",
+    "global_dotnet_root_disabled": true
   },
   "portable_acceptance": "ABH-PORTABILITY-TESTS.json",
   "installer_acceptance": "ABH-INSTALLER-TESTS.json",

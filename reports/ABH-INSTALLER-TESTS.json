@@ -1,8 +1,8 @@
 {
   "status": "VERIFIED",
-  "timestamp": "2026-11-18T22:56:36.5586843Z",
-  "installer_sha256": "12c462df17455e12c7eeb63c628620bfafcdfe7c49cbb787c9a4e4cbbdee3212",
-  "installed_executable_sha256": "9d9e72f4e5b6d86ff8baa3309e2b0b938958cc6564ae54686b3e55e0ee5466fc",
+  "timestamp": "2026-11-18T23:33:41.9885486Z",
+  "installer_sha256": "8436f4cc145023e7f56a85a77ada6c9b794bd4a42141d31fe928e71d4f1656f7",
+  "installed_executable_sha256": "1302d7b56a6d719a1029ca162323ed49fd723b5003a6ace9f7db38f3bfe63e10",
   "checks": [
     {
       "status": "VERIFIED",
@@ -25,9 +25,9 @@
       "name": "User-generated data and registry preserved"
     },
     {
-      "name": "External original model SHA-256 preserved",
       "sha256": "5a1395716f7913741cc51d98581b9b1228d80987a9f7d3664106742eb06bba83",
-      "passed": true
+      "passed": true,
+      "name": "External original model SHA-256 preserved"
     },
     {
       "passed": true,
@@ -36,8 +36,8 @@
   ],
   "inference": {
     "status": "VERIFIED",
-    "timestamp": "2026-11-18T23:56:34.452023+01:00",
-    "elapsedSeconds": 10.9780682,
+    "timestamp": "2026-11-19T00:33:34.7787398+01:00",
+    "elapsedSeconds": 28.5494119,
     "reports": [
       {
         "status": "VERIFIED",
@@ -61,7 +61,7 @@
           "mmap": true,
           "flashAttention": "auto"
         },
-        "startup": 3.1890461,
+        "startup": 4.1093304,
         "inference": {
           "success": true,
           "text": "7 + 5 is 12.",
@@ -76,13 +76,13 @@
           "timings": {
             "cache_n": 0,
             "prompt_n": 45,
-            "prompt_ms": 61.168,
-            "prompt_per_token_ms": 1.3592888888888888,
-            "prompt_per_second": 735.6787862934868,
+            "prompt_ms": 51.817,
+            "prompt_per_token_ms": 1.1514888888888888,
+            "prompt_per_second": 868.4408591774901,
             "predicted_n": 10,
-            "predicted_ms": 59.319,
-            "predicted_per_token_ms": 6.591,
-            "predicted_per_second": 151.72204521316948
+            "predicted_ms": 58.686,
+            "predicted_per_token_ms": 6.520666666666667,
+            "predicted_per_second": 153.35855229526632
           },
           "arithmeticSanityPassed": false,
           "intelligenceClaim": "No general intelligence or accuracy claim"
@@ -91,9 +91,9 @@
         "responses": {
           "httpStatus": 200,
           "body": {
-            "completed_at": 1795042590,
-            "created_at": 1795042590,
-            "id": "resp_89MLiGsGOSkjmLR8KNNBkLDMXxZIiHy8",
+            "completed_at": 1795044804,
+            "created_at": 1795044804,
+            "id": "resp_eSTmy3pFACqNIJkZjm28A7M3RxVtqCj6",
             "model": "e42f6f80f3fe4465",
             "object": "response",
             "output": [
@@ -103,10 +103,10 @@
                     "type": "output_text",
                     "annotations": [],
                     "logprobs": [],
-                    "text": "Hello! My name is SmolLM, and I am a helpful AI assistant. I am here to help you with"
+                    "text": "I'm Sloane, a helpful AI assistant who specializes in helping users connect with others with similar interests. What brings"
                   }
                 ],
-                "id": "msg_NM2mBIaN9kgpkILrLJxtEjPZN6CAx9dX",
+                "id": "msg_CcYyz4vif3QYvZGTjdsUp4AlO3bwgF2A",
                 "role": "assistant",
                 "status": "completed",
                 "type": "message"
@@ -126,7 +126,7 @@
         "calibration": null,
         "browser": {
           "status": "PASS",
-          "reply": "The answer would be 15.",
+          "reply": "To calculate 9 plus 6, we need to add 6 and 9, since both numbers are positive and represent a total of 15.\n\n9 + 6 = 15",
           "launchFragmentErased": true,
           "navigation": [
             {
@@ -186,13 +186,13 @@
         "codex": null,
         "shutdown": {
           "clean": true,
-          "pid": 12784,
-          "port": 54261,
+          "pid": 14840,
+          "port": 54262,
           "processExited": true,
           "detail": {
-            "timestamp": "2026-11-18T23:56:34.4020984+01:00",
-            "pid": 12784,
-            "port": 54261,
+            "timestamp": "2026-11-19T00:33:34.7535705+01:00",
+            "pid": 14840,
+            "port": 54262,
             "graceful": true,
             "exitCode": 0,
             "method": "CTRL_C_EVENT"
@@ -204,16 +204,16 @@
       "cpu": "AMD Ryzen 5 5600G with Radeon Graphics",
       "threads": 12,
       "totalRam": 68047552512,
-      "freeRam": 38455943168,
+      "freeRam": 34035298304,
       "gpu": "NVIDIA GeForce RTX 3050",
       "vramMiB": 6144,
-      "freeVramMiB": 1501,
+      "freeVramMiB": 1478,
       "driver": "621.24",
       "fingerprint": "7c7d9c49c2c0b57b3b91439c",
       "physicalCores": 6,
       "operatingSystem": "Microsoft Windows NT 10.0.29695.0",
       "architecture": "X64",
-      "memoryPressurePercent": 43.49,
+      "memoryPressurePercent": 49.98,
       "displayAdapters": [
         "NVIDIA GeForce RTX 3050"
       ]

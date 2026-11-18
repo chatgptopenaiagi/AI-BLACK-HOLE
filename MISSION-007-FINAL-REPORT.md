@@ -20,7 +20,7 @@ The only downloaded weights were the explicitly selected SmolLM2 Q8_0 file from 
 - Real recovery tests rejected an invalid candidate, restored a verified profile, detected an intentionally terminated owned engine, restarted inference, cancelled calibration and ended with clean shutdown.
 - Optional ARX 4.0.1b1 performed a real isolated CLI deep scan. The native core did not require Python.
 - The self-contained application ran after relocation to another physical fixed disk in a path with spaces, with Python/.NET excluded from its child PATH and a nonexistent DOTNET_ROOT. Host installations were not uninstalled.
-- The ZIP passed integrity testing, extraction and SHA-256 comparison of all 110 files, then actual inference from the extracted directory.
+- The ZIP passed integrity testing, extraction and SHA-256 comparison of all 118 files, then actual inference from the extracted directory.
 - The installer installed into a selected independent directory, created its shortcut, ran inference/browser chat and uninstalled. External model identity, registry and a user-data sentinel survived uninstallation.
 - A separate optional package copied only SmolLM2, verified both source and copy, retained a relative model reference and ran after moving that copied package to a Unicode path. It is not distributed as a release asset.
 

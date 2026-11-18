@@ -1,14 +1,15 @@
 {
-  "cloudBudget": 0,
+  "maxConcurrent": 2,
+  "status": "PARTIAL",
   "maxToolCalls": 0,
   "limitation": "Codex and cloud handoffs are explicit separate actions, not autonomous workflow stages",
+  "cloudBudget": 0,
   "maxSteps": 6,
   "supportedAgents": [
     "local",
     "ARX",
     "DRAGONHYDRA"
   ],
-  "status": "PARTIAL",
   "verified": [
     {
       "name": "Automatic workflow rejects unapproved cloud agent",
@@ -25,6 +26,5 @@
       "status": "VERIFIED",
       "detail": null
     }
-  ],
-  "maxConcurrent": 2
+  ]
 }

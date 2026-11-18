@@ -1,52 +1,52 @@
 {
   "status": "VERIFIED",
-  "timestamp": "2026-11-18T22:50:38.1418735Z",
-  "executable_sha256": "9d9e72f4e5b6d86ff8baa3309e2b0b938958cc6564ae54686b3e55e0ee5466fc",
+  "timestamp": "2026-11-18T23:28:21.867974Z",
+  "executable_sha256": "1302d7b56a6d719a1029ca162323ed49fd723b5003a6ace9f7db38f3bfe63e10",
   "build": {
     "version": "2.0.0-beta.2",
-    "timestamp_utc": "2026-11-18T22:46:26.3250028Z",
-    "source_commit": "c23f3249330629f4d604755aa008ba2dd4831288",
+    "timestamp_utc": "2026-11-18T23:23:57.3969142Z",
+    "source_commit": "dd072a4266694caec53985eab0b375b87fabd03f",
     "source_dirty": false,
-    "executable_sha256": "9d9e72f4e5b6d86ff8baa3309e2b0b938958cc6564ae54686b3e55e0ee5466fc",
+    "executable_sha256": "1302d7b56a6d719a1029ca162323ed49fd723b5003a6ace9f7db38f3bfe63e10",
     "sdk": "8.0.427",
     "self_contained": true
   },
   "checks": [
     {
-      "name": "Self-contained core synthetic and API tests",
-      "status": "VERIFIED"
-    },
-    {
-      "name": "Official MCP SDK transports",
-      "status": "VERIFIED"
-    },
-    {
-      "name": "Executable hash after relocation",
-      "status": "VERIFIED"
-    },
-    {
-      "name": "Different fixed physical disk",
-      "target_disk": 2,
       "status": "VERIFIED",
-      "source_disk": 3
+      "name": "Self-contained core synthetic and API tests"
     },
     {
-      "name": "Directory containing spaces",
-      "status": "VERIFIED"
+      "status": "VERIFIED",
+      "name": "Official MCP SDK transports"
     },
     {
-      "name": "Two external models through relocated native and browser interfaces",
-      "status": "VERIFIED"
+      "status": "VERIFIED",
+      "name": "Executable hash after relocation"
     },
     {
-      "name": "No Python or dotnet on child PATH, nonexistent DOTNET_ROOT/PYTHONHOME",
+      "status": "VERIFIED",
+      "source_disk": 3,
+      "name": "Different fixed physical disk",
+      "target_disk": 2
+    },
+    {
+      "status": "VERIFIED",
+      "name": "Directory containing spaces"
+    },
+    {
+      "status": "VERIFIED",
+      "name": "Two external models through relocated native and browser interfaces"
+    },
+    {
       "limitation": "Host installations were not uninstalled; this verifies self-contained execution in an isolated environment",
-      "status": "VERIFIED"
+      "status": "VERIFIED",
+      "name": "No Python or dotnet on child PATH, nonexistent DOTNET_ROOT/PYTHONHOME"
     },
     {
-      "name": "Physical removable USB media",
       "reason": "No removable media available",
-      "status": "NOT TESTED"
+      "status": "NOT TESTED",
+      "name": "Physical removable USB media"
     }
   ],
   "model_locations": "Original external models retained on separate drives; no original weights copied",

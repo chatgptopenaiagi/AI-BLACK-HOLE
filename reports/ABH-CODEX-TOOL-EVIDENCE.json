@@ -1,10 +1,4 @@
 {
-  "expected": {
-    "pid": 28100,
-    "port": 57708,
-    "modelId": "02cdc514da334681"
-  },
-  "exactlyOnceInstruction": "PARTIAL: three calls despite exactly-once prompt",
   "shutdown": {
     "clean": true,
     "pid": 28100,
@@ -18,6 +12,14 @@
       "exitCode": 0,
       "method": "CTRL_C_EVENT"
     }
+  },
+  "status": "VERIFIED",
+  "exactlyOnceInstruction": "PARTIAL: three calls despite exactly-once prompt",
+  "callCount": 3,
+  "expected": {
+    "pid": 28100,
+    "port": 57708,
+    "modelId": "02cdc514da334681"
   },
   "calls": [
     {
@@ -99,8 +101,6 @@
       "completedAtMs": 1795040422065
     }
   ],
-  "callCount": 3,
-  "status": "VERIFIED",
-  "installedVersion": "0.169.0",
-  "matchingResults": 3
+  "matchingResults": 3,
+  "installedVersion": "0.169.0"
 }

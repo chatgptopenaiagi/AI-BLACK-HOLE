@@ -1,10 +1,17 @@
 {
+  "discovery_scope": "CIM, installed application registry, PATH tools, active process names; no unrelated disk scan",
+  "status": "VERIFIED",
+  "cpu": {
+    "Name": "AMD Ryzen 5 5600G with Radeon Graphics         ",
+    "NumberOfCores": 6,
+    "NumberOfLogicalProcessors": 12
+  },
   "memory": {
     "total_bytes": 68047552512,
     "available_bytes": 35126935552,
     "pressure_percent": 48.38
   },
-  "nvidia_smi": "NVIDIA GeForce RTX 3050, 6144, 1770, 621.24",
+  "scope": "Native Windows machine discovery; selected public hardware fields only",
   "gpus": [
     {
       "Name": "AMD Radeon(TM) Graphics",
@@ -17,17 +24,10 @@
       "AdapterRAM": 4293918720
     }
   ],
-  "discovery_scope": "CIM, installed application registry, PATH tools, active process names; no unrelated disk scan",
-  "status": "VERIFIED",
-  "cpu": {
-    "Name": "AMD Ryzen 5 5600G with Radeon Graphics         ",
-    "NumberOfCores": 6,
-    "NumberOfLogicalProcessors": 12
-  },
   "os": {
     "Caption": "Microsoft Windows 11 Pro Insider Preview",
     "Version": "10.0.29695",
     "OSArchitecture": "64-bit"
   },
-  "scope": "Native Windows machine discovery; selected public hardware fields only"
+  "nvidia_smi": "NVIDIA GeForce RTX 3050, 6144, 1770, 621.24"
 }

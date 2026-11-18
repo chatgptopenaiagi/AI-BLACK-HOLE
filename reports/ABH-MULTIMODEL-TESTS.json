@@ -1,8 +1,7 @@
 {
-  "scope": "Same native model selector and engine adapter; genuine generation and browser chat; no model copied or relocated",
   "nativeSwitching": {
     "status": "VERIFIED",
-    "timestamp": "2026-11-18T23:50:35.5716138+01:00",
+    "timestamp": "2026-11-19T00:28:19.1703473+01:00",
     "checks": [
       {
         "name": "Native menu groups",
@@ -32,8 +31,8 @@
           "modelName": "Qwen3.8 27B 0814",
           "ready": true,
           "status": "Ready · CPU · 2048 context · 0 GPU layers",
-          "pid": 20072,
-          "port": 54473,
+          "pid": 27100,
+          "port": 55619,
           "profile": {
             "name": "SAFE",
             "backend": "cpu",
@@ -46,9 +45,9 @@
             "mmap": true,
             "flashAttention": "auto"
           },
-          "startupSeconds": 21.9295562,
-          "memoryBytes": 27586359296,
-          "peakWorkingSet": 27586359296,
+          "startupSeconds": 50.9569006,
+          "memoryBytes": 27586060288,
+          "peakWorkingSet": 27586060288,
           "engineFingerprint": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042"
         }
       },
@@ -66,7 +65,7 @@
               }
             }
           ],
-          "created": 1795042181,
+          "created": 1795044403,
           "model": "02cdc514da334681",
           "system_fingerprint": "b1-6c01da627",
           "object": "chat.completion",
@@ -78,17 +77,17 @@
               "cached_tokens": 0
             }
           },
-          "id": "chatcmpl-DNcbs9Cy6XctvUToqIhaFyQZ5YdQhf48",
+          "id": "chatcmpl-DykSiahH5APonx9PMHvKJQuuORWjnOuj",
           "timings": {
             "cache_n": 0,
             "prompt_n": 19,
-            "prompt_ms": 2908.179,
-            "prompt_per_token_ms": 153.06205263157895,
-            "prompt_per_second": 6.533297984752657,
+            "prompt_ms": 3731.325,
+            "prompt_per_token_ms": 196.38552631578946,
+            "prompt_per_second": 5.0920249509222595,
             "predicted_n": 11,
-            "predicted_ms": 6087.738,
-            "predicted_per_token_ms": 608.7738,
-            "predicted_per_second": 1.642646250544948
+            "predicted_ms": 6113.47,
+            "predicted_per_token_ms": 611.347,
+            "predicted_per_second": 1.6357322437175614
           }
         }
       },
@@ -162,7 +161,7 @@
           "modelSha256": "5a1395716f7913741cc51d98581b9b1228d80987a9f7d3664106742eb06bba83",
           "engineFingerprint": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042",
           "hardwareFingerprint": "7c7d9c49c2c0b57b3b91439c",
-          "date": "2026-11-18T23:50:30.5449583+01:00",
+          "date": "2026-11-19T00:28:11.7406002+01:00",
           "candidates": [
             {
               "profile": {
@@ -178,17 +177,17 @@
                 "flashAttention": "auto"
               },
               "status": "VERIFIED",
-              "startupSeconds": 1.5654616,
-              "elapsedSeconds": 2.3527511,
-              "promptTokensPerSecond": 931.612069129418,
-              "outputTokensPerSecond": 161.3758443414713,
-              "peakRamBytes": 229982208,
-              "peakDeviceVramMiB": 4645,
+              "startupSeconds": 1.5239407,
+              "elapsedSeconds": 2.4987683,
+              "promptTokensPerSecond": 503.67477000565356,
+              "outputTokensPerSecond": 131.2943118302427,
+              "peakRamBytes": 230137856,
+              "peakDeviceVramMiB": 4543,
               "answer": "A library organizes books by genre, author, and location, making it easy for patrons to find the right book for their interests. The library also has a vast collection of books, including fiction, non-fiction, children's, and adult fiction, which can be accessed through various digital platforms. Additionally, the library offers",
               "error": null,
               "qualityPassed": false,
               "qualityAnswer": "7 + 5 is 12.",
-              "warmRequestSeconds": 0.1097847,
+              "warmRequestSeconds": 0.1175653,
               "benchmarkUsage": {
                 "completion_tokens": 64,
                 "prompt_tokens": 49,
@@ -212,17 +211,17 @@
                 "flashAttention": "auto"
               },
               "status": "VERIFIED",
-              "startupSeconds": 0.763209,
-              "elapsedSeconds": 1.6127705,
-              "promptTokensPerSecond": 647.9424521315984,
-              "outputTokensPerSecond": 164.17408707480868,
-              "peakRamBytes": 229933056,
-              "peakDeviceVramMiB": 4642,
+              "startupSeconds": 0.7311565,
+              "elapsedSeconds": 1.6312035,
+              "promptTokensPerSecond": 541.5860735009671,
+              "outputTokensPerSecond": 150.75160442779,
+              "peakRamBytes": 230023168,
+              "peakDeviceVramMiB": 4542,
               "answer": "A library organizes books by genre, author, and location, making it easy for patrons to find the right book for their interests. The library also has a vast collection of books, including fiction, non-fiction, children's, and adult fiction, which can be accessed through various digital platforms. Additionally, the library offers",
               "error": null,
               "qualityPassed": false,
               "qualityAnswer": "7 + 5 is 12.",
-              "warmRequestSeconds": 0.1301874,
+              "warmRequestSeconds": 0.1417429,
               "benchmarkUsage": {
                 "completion_tokens": 64,
                 "prompt_tokens": 49,
@@ -246,17 +245,17 @@
                 "flashAttention": "auto"
               },
               "status": "VERIFIED",
-              "startupSeconds": 32.7044567,
-              "elapsedSeconds": 33.1904163,
-              "promptTokensPerSecond": 1529.1951440252162,
-              "outputTokensPerSecond": 352.4120647990692,
-              "peakRamBytes": 535470080,
-              "peakDeviceVramMiB": 4952,
+              "startupSeconds": 59.7833476,
+              "elapsedSeconds": 60.3105801,
+              "promptTokensPerSecond": 1265.626614319661,
+              "outputTokensPerSecond": 321.2957910251376,
+              "peakRamBytes": 535326720,
+              "peakDeviceVramMiB": 4852,
               "answer": "A library organizes books by genre, author, and location, making it easy for patrons to find the right book for their interests. The library also has a vast collection of books, including fiction, non-fiction, children's, and adult fiction, which can be accessed through various digital platforms. Additionally, the library offers",
               "error": null,
               "qualityPassed": false,
               "qualityAnswer": "7 + 5 is 12.",
-              "warmRequestSeconds": 0.049201,
+              "warmRequestSeconds": 0.0507359,
               "benchmarkUsage": {
                 "completion_tokens": 64,
                 "prompt_tokens": 49,
@@ -314,8 +313,8 @@
           "modelName": "Smollm2 135M 8k Lc100K Mix1 Ep2",
           "ready": true,
           "status": "Ready · CUDA · 4096 context · 30 GPU layers",
-          "pid": 28040,
-          "port": 49675,
+          "pid": 13116,
+          "port": 63791,
           "profile": {
             "name": "GPU candidate",
             "backend": "cuda",
@@ -328,9 +327,9 @@
             "mmap": true,
             "flashAttention": "auto"
           },
-          "startupSeconds": 1.569368,
-          "memoryBytes": 518959104,
-          "peakWorkingSet": 518959104,
+          "startupSeconds": 1.5315484,
+          "memoryBytes": 519077888,
+          "peakWorkingSet": 519077888,
           "engineFingerprint": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042"
         }
       },
@@ -353,7 +352,7 @@
               }
             }
           ],
-          "created": 1795042232,
+          "created": 1795044493,
           "model": "d456e45171744a23",
           "system_fingerprint": "b1-6c01da627",
           "object": "chat.completion",
@@ -365,17 +364,17 @@
               "cached_tokens": 0
             }
           },
-          "id": "chatcmpl-IMqj5tpmPXbV5M9D6MYG6iXaE46rCziw",
+          "id": "chatcmpl-SufveQJmN8Pij7B6VnyebNLTRKpGEfq2",
           "timings": {
             "cache_n": 0,
             "prompt_n": 37,
-            "prompt_ms": 32.874,
-            "prompt_per_token_ms": 0.8884864864864865,
-            "prompt_per_second": 1125.5095212021656,
+            "prompt_ms": 35.487,
+            "prompt_per_token_ms": 0.9591081081081082,
+            "prompt_per_second": 1042.6353312480626,
             "predicted_n": 24,
-            "predicted_ms": 83.189,
-            "predicted_per_token_ms": 3.6169130434782604,
-            "predicted_per_second": 276.4788613879239
+            "predicted_ms": 75.725,
+            "predicted_per_token_ms": 3.292391304347826,
+            "predicted_per_second": 303.7306041597887
           }
         }
       },
@@ -384,7 +383,7 @@
         "status": "VERIFIED",
         "detail": {
           "status": "PASS",
-          "reply": "\"8 + 11 is incorrect. The correct answer is 10.",
+          "reply": "To answer the question \"What is 9 plus 6?\" please provide the following information: \n* The value of 9.\n* The value of 6.",
           "launchFragmentErased": true,
           "navigation": [
             {
@@ -446,9 +445,9 @@
         "name": "Native Stop clean shutdown",
         "status": "VERIFIED",
         "detail": {
-          "timestamp": "2026-11-18T23:50:35.490732+01:00",
-          "pid": 28040,
-          "port": 49675,
+          "timestamp": "2026-11-19T00:28:19.0709627+01:00",
+          "pid": 13116,
+          "port": 63791,
           "graceful": true,
           "exitCode": 0,
           "method": "CTRL_C_EVENT"
@@ -479,5 +478,6 @@
     "llama",
     "qwen35"
   ],
-  "status": "VERIFIED"
+  "status": "VERIFIED",
+  "scope": "Same native model selector and engine adapter; genuine generation and browser chat; no model copied or relocated"
 }

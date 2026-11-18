@@ -2,25 +2,11 @@
   "models": [
     {
       "lastVerification": "2026-11-18T23:05:45.6103817+01:00",
-      "identity": {
-        "layers": 65,
-        "version": 3,
-        "architecture": "qwen35",
-        "quantization": "Q4_K_M",
-        "embedding": false,
-        "context": 262144,
-        "chatTemplatePresent": false,
-        "tensorCount": 866,
-        "auxiliary": false,
-        "name": "Qwen3.8 27B 0814"
-      },
-      "location": "External file retained at its original selected location",
-      "state": "READY",
-      "sha256": "f5f1dd8920d417aac2718b0bda3403da274301efdd6760b4f0f4b864ff2ad57d",
-      "lastSuccessfulLaunch": "2026-11-18T23:40:48.2017724+01:00",
       "bytes": 16810714464,
-      "verifiedEngine": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042",
       "originalFileName": "Qwen27B",
+      "sha256": "f5f1dd8920d417aac2718b0bda3403da274301efdd6760b4f0f4b864ff2ad57d",
+      "verifiedEngine": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042",
+      "id": "02cdc514da334681",
       "capabilities": {
         "TEXT_GENERATION": "TESTED",
         "CHAT": "TESTED",
@@ -31,29 +17,29 @@
         "STRUCTURED_JSON": "UNKNOWN",
         "CODE_ASSISTANCE": "UNKNOWN"
       },
-      "id": "02cdc514da334681"
+      "state": "READY",
+      "lastSuccessfulLaunch": "2026-11-18T23:40:48.2017724+01:00",
+      "location": "External file retained at its original selected location",
+      "identity": {
+        "architecture": "qwen35",
+        "layers": 65,
+        "chatTemplatePresent": false,
+        "name": "Qwen3.8 27B 0814",
+        "embedding": false,
+        "quantization": "Q4_K_M",
+        "auxiliary": false,
+        "context": 262144,
+        "tensorCount": 866,
+        "version": 3
+      }
     },
     {
       "lastVerification": "2026-11-18T23:07:18.7705029+01:00",
-      "identity": {
-        "layers": 30,
-        "version": 3,
-        "architecture": "llama",
-        "quantization": "Q8_0",
-        "embedding": false,
-        "context": 8192,
-        "chatTemplatePresent": false,
-        "tensorCount": 272,
-        "auxiliary": false,
-        "name": "Smollm2 135M 8k Lc100K Mix1 Ep2"
-      },
-      "location": "External file retained at its original selected location",
-      "state": "READY",
-      "sha256": "5a1395716f7913741cc51d98581b9b1228d80987a9f7d3664106742eb06bba83",
-      "lastSuccessfulLaunch": "2026-11-18T23:42:19.3479345+01:00",
       "bytes": 144811360,
-      "verifiedEngine": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042",
       "originalFileName": "SmolLM2-135M-Instruct-Q8_0.gguf",
+      "sha256": "5a1395716f7913741cc51d98581b9b1228d80987a9f7d3664106742eb06bba83",
+      "verifiedEngine": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042",
+      "id": "d456e45171744a23",
       "capabilities": {
         "TEXT_GENERATION": "TESTED",
         "CHAT": "TESTED",
@@ -64,9 +50,23 @@
         "STRUCTURED_JSON": "UNKNOWN",
         "CODE_ASSISTANCE": "UNKNOWN"
       },
-      "id": "d456e45171744a23"
+      "state": "READY",
+      "lastSuccessfulLaunch": "2026-11-18T23:42:19.3479345+01:00",
+      "location": "External file retained at its original selected location",
+      "identity": {
+        "architecture": "llama",
+        "layers": 30,
+        "chatTemplatePresent": false,
+        "name": "Smollm2 135M 8k Lc100K Mix1 Ep2",
+        "embedding": false,
+        "quantization": "Q8_0",
+        "auxiliary": false,
+        "context": 8192,
+        "tensorCount": 272,
+        "version": 3
+      }
     }
   ],
-  "limitation": "Metadata identity and tested capabilities are separate. Tokenizer/template bodies are omitted from the public summary.",
-  "status": "VERIFIED"
+  "status": "VERIFIED",
+  "limitation": "Metadata identity and tested capabilities are separate. Tokenizer/template bodies are omitted from the public summary."
 }
