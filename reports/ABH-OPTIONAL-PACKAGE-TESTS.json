@@ -1,0 +1,8 @@
+{
+  "status": "VERIFIED",
+  "application_relative_registration": "models\\selected-model.gguf",
+  "source_model_sha256": "5a1395716f7913741cc51d98581b9b1228d80987a9f7d3664106742eb06bba83",
+  "actual_inference": "ABH-OPTIONAL-PACKAGE-TEST.json",
+  "relocated_with_unicode_and_spaces": true,
+  "distributed_publicly": false
+}

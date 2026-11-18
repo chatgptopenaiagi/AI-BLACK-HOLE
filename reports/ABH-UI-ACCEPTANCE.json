@@ -1,6 +1,6 @@
 {
   "status": "VERIFIED",
-  "timestamp": "2026-11-18T23:42:40.0241128+01:00",
+  "timestamp": "2026-11-18T23:50:35.5716138+01:00",
   "checks": [
     {
       "name": "Native menu groups",
@@ -30,8 +30,8 @@
         "modelName": "Qwen3.8 27B 0814",
         "ready": true,
         "status": "Ready · CPU · 2048 context · 0 GPU layers",
-        "pid": 15440,
-        "port": 55132,
+        "pid": 20072,
+        "port": 54473,
         "profile": {
           "name": "SAFE",
           "backend": "cpu",
@@ -44,9 +44,9 @@
           "mmap": true,
           "flashAttention": "auto"
         },
-        "startupSeconds": 21.9797248,
-        "memoryBytes": 27585642496,
-        "peakWorkingSet": 27586072576,
+        "startupSeconds": 21.9295562,
+        "memoryBytes": 27586359296,
+        "peakWorkingSet": 27586359296,
         "engineFingerprint": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042"
       }
     },
@@ -64,7 +64,7 @@
             }
           }
         ],
-        "created": 1795041660,
+        "created": 1795042181,
         "model": "02cdc514da334681",
         "system_fingerprint": "b1-6c01da627",
         "object": "chat.completion",
@@ -76,17 +76,17 @@
             "cached_tokens": 0
           }
         },
-        "id": "chatcmpl-Im77TNbyNrsWzXdprTehm47WBG09YU5q",
+        "id": "chatcmpl-DNcbs9Cy6XctvUToqIhaFyQZ5YdQhf48",
         "timings": {
           "cache_n": 0,
           "prompt_n": 19,
-          "prompt_ms": 2685.231,
-          "prompt_per_token_ms": 141.32794736842106,
-          "prompt_per_second": 7.0757413421787545,
+          "prompt_ms": 2908.179,
+          "prompt_per_token_ms": 153.06205263157895,
+          "prompt_per_second": 6.533297984752657,
           "predicted_n": 11,
-          "predicted_ms": 5342.31,
-          "predicted_per_token_ms": 534.231,
-          "predicted_per_second": 1.871849443405568
+          "predicted_ms": 6087.738,
+          "predicted_per_token_ms": 608.7738,
+          "predicted_per_second": 1.642646250544948
         }
       }
     },
@@ -160,7 +160,7 @@
         "modelSha256": "5a1395716f7913741cc51d98581b9b1228d80987a9f7d3664106742eb06bba83",
         "engineFingerprint": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042",
         "hardwareFingerprint": "7c7d9c49c2c0b57b3b91439c",
-        "date": "2026-11-18T23:42:17.4212704+01:00",
+        "date": "2026-11-18T23:50:30.5449583+01:00",
         "candidates": [
           {
             "profile": {
@@ -176,17 +176,17 @@
               "flashAttention": "auto"
             },
             "status": "VERIFIED",
-            "startupSeconds": 0.7136761,
-            "elapsedSeconds": 2.1192579,
-            "promptTokensPerSecond": 563.9638602750762,
-            "outputTokensPerSecond": 106.12474542694997,
-            "peakRamBytes": 229765120,
-            "peakDeviceVramMiB": 4622,
+            "startupSeconds": 1.5654616,
+            "elapsedSeconds": 2.3527511,
+            "promptTokensPerSecond": 931.612069129418,
+            "outputTokensPerSecond": 161.3758443414713,
+            "peakRamBytes": 229982208,
+            "peakDeviceVramMiB": 4645,
             "answer": "A library organizes books by genre, author, and location, making it easy for patrons to find the right book for their interests. The library also has a vast collection of books, including fiction, non-fiction, children's, and adult fiction, which can be accessed through various digital platforms. Additionally, the library offers",
             "error": null,
             "qualityPassed": false,
             "qualityAnswer": "7 + 5 is 12.",
-            "warmRequestSeconds": 0.1098019,
+            "warmRequestSeconds": 0.1097847,
             "benchmarkUsage": {
               "completion_tokens": 64,
               "prompt_tokens": 49,
@@ -210,17 +210,17 @@
               "flashAttention": "auto"
             },
             "status": "VERIFIED",
-            "startupSeconds": 0.7311813,
-            "elapsedSeconds": 1.8124345,
-            "promptTokensPerSecond": 464.23495973472285,
-            "outputTokensPerSecond": 172.86653880030622,
-            "peakRamBytes": 229736448,
-            "peakDeviceVramMiB": 4622,
+            "startupSeconds": 0.763209,
+            "elapsedSeconds": 1.6127705,
+            "promptTokensPerSecond": 647.9424521315984,
+            "outputTokensPerSecond": 164.17408707480868,
+            "peakRamBytes": 229933056,
+            "peakDeviceVramMiB": 4642,
             "answer": "A library organizes books by genre, author, and location, making it easy for patrons to find the right book for their interests. The library also has a vast collection of books, including fiction, non-fiction, children's, and adult fiction, which can be accessed through various digital platforms. Additionally, the library offers",
             "error": null,
             "qualityPassed": false,
             "qualityAnswer": "7 + 5 is 12.",
-            "warmRequestSeconds": 0.1520123,
+            "warmRequestSeconds": 0.1301874,
             "benchmarkUsage": {
               "completion_tokens": 64,
               "prompt_tokens": 49,
@@ -244,17 +244,17 @@
               "flashAttention": "auto"
             },
             "status": "VERIFIED",
-            "startupSeconds": 19.6455342,
-            "elapsedSeconds": 20.1620542,
-            "promptTokensPerSecond": 1512.2990031171876,
-            "outputTokensPerSecond": 336.4306312079462,
-            "peakRamBytes": 535314432,
-            "peakDeviceVramMiB": 4937,
+            "startupSeconds": 32.7044567,
+            "elapsedSeconds": 33.1904163,
+            "promptTokensPerSecond": 1529.1951440252162,
+            "outputTokensPerSecond": 352.4120647990692,
+            "peakRamBytes": 535470080,
+            "peakDeviceVramMiB": 4952,
             "answer": "A library organizes books by genre, author, and location, making it easy for patrons to find the right book for their interests. The library also has a vast collection of books, including fiction, non-fiction, children's, and adult fiction, which can be accessed through various digital platforms. Additionally, the library offers",
             "error": null,
             "qualityPassed": false,
             "qualityAnswer": "7 + 5 is 12.",
-            "warmRequestSeconds": 0.0433485,
+            "warmRequestSeconds": 0.049201,
             "benchmarkUsage": {
               "completion_tokens": 64,
               "prompt_tokens": 49,
@@ -312,8 +312,8 @@
         "modelName": "Smollm2 135M 8k Lc100K Mix1 Ep2",
         "ready": true,
         "status": "Ready · CUDA · 4096 context · 30 GPU layers",
-        "pid": 26584,
-        "port": 62733,
+        "pid": 28040,
+        "port": 49675,
         "profile": {
           "name": "GPU candidate",
           "backend": "cuda",
@@ -326,9 +326,9 @@
           "mmap": true,
           "flashAttention": "auto"
         },
-        "startupSeconds": 1.5535589,
-        "memoryBytes": 518717440,
-        "peakWorkingSet": 518717440,
+        "startupSeconds": 1.569368,
+        "memoryBytes": 518959104,
+        "peakWorkingSet": 518959104,
         "engineFingerprint": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042"
       }
     },
@@ -351,7 +351,7 @@
             }
           }
         ],
-        "created": 1795041739,
+        "created": 1795042232,
         "model": "d456e45171744a23",
         "system_fingerprint": "b1-6c01da627",
         "object": "chat.completion",
@@ -363,17 +363,17 @@
             "cached_tokens": 0
           }
         },
-        "id": "chatcmpl-aYSIAKkD947P5we0bXGtONEgiDSBbGk6",
+        "id": "chatcmpl-IMqj5tpmPXbV5M9D6MYG6iXaE46rCziw",
         "timings": {
           "cache_n": 0,
           "prompt_n": 37,
-          "prompt_ms": 24.874,
-          "prompt_per_token_ms": 0.6722702702702702,
-          "prompt_per_second": 1487.4969848034093,
+          "prompt_ms": 32.874,
+          "prompt_per_token_ms": 0.8884864864864865,
+          "prompt_per_second": 1125.5095212021656,
           "predicted_n": 24,
-          "predicted_ms": 70.572,
-          "predicted_per_token_ms": 3.0683478260869568,
-          "predicted_per_second": 325.90829224054863
+          "predicted_ms": 83.189,
+          "predicted_per_token_ms": 3.6169130434782604,
+          "predicted_per_second": 276.4788613879239
         }
       }
     },
@@ -382,7 +382,7 @@
       "status": "VERIFIED",
       "detail": {
         "status": "PASS",
-        "reply": "Nine plus six equals nine plus six equals nine plus five equals nine plus four equals nine plus three equals nine plus two equals nine plus two equals nine plus one equals nine plus eleven equals nine plus ten equals 10 plus eleven equals 11 plus 1 equals 12 plus 1 equals 13 plus 1 equals 14 plus 1 equals 15 plus 1 equals 16 plus 1 equals 17 plus 1 equals 18 plus 1 equals 19 plus 1 equals 20 plus 1 equals 21 plus 1 equals 22 plus 1 equals 23 plus 1 equals 24 plus 1 equals 25 plus 1 equals 26 plus 1 equals 27 plus 1 equals 28 plus 1 equals 29 plus 1 equals 30 plus 1 equals 31 plus 1 equals 32 plus 1 equals 33 plus 1 equals 34 plus 1 equals 35 plus 1 equals 36 plus 1 equals 37 plus 1 equals 38 plus 1 equals 39 plus 1 equals 40 plus 1 equals 41 plus 1 equals 42 plus 1 equals 43 plus 1 equals 44 plus 1 equals 45 plus 1 equals 46 plus 1 equals 47 plus 1 equals 48 plus 1 equals 49 plus 1 equals 50 plus 1 equals 51 plus 1 equals 52 plus 1 equals 53 plus 1 equals 54 plus 1 equals 55 plus 1 equals 56 plus 1 equals 57 plus 1 equals 58 plus 1 equals 59 plus 1 equals 60 plus 1 equals 61 plus 1 equals 62 plus 1 equals 63 plus 1 equals 64 plus 1 equals 65 plus 1 equals 66 plus 1 equals 67 plus 1 equals 68 plus 1 equals 69 plus 1 equals 70 plus 1 equals 71 plus 1 equals 72 plus 1 equals 73 plus 1 equals 74 plus 1 equals 75 plus 1 equals 76 plus 1 equals 77",
+        "reply": "\"8 + 11 is incorrect. The correct answer is 10.",
         "launchFragmentErased": true,
         "navigation": [
           {
@@ -444,9 +444,9 @@
       "name": "Native Stop clean shutdown",
       "status": "VERIFIED",
       "detail": {
-        "timestamp": "2026-11-18T23:42:39.9888351+01:00",
-        "pid": 26584,
-        "port": 62733,
+        "timestamp": "2026-11-18T23:50:35.490732+01:00",
+        "pid": 28040,
+        "port": 49675,
         "graceful": true,
         "exitCode": 0,
         "method": "CTRL_C_EVENT"

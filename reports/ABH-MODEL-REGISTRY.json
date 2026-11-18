@@ -1,40 +1,26 @@
 {
-  "privacy": "Absolute paths and volume identifiers excluded from public evidence; private original evidence retained locally",
   "models": [
     {
-      "capabilities": {
-        "TEXT_GENERATION": "TESTED",
-        "CHAT": "TESTED",
-        "EMBEDDINGS": "UNKNOWN",
-        "TOOL_CALLING": "UNKNOWN",
-        "VISION": "UNKNOWN",
-        "AUDIO": "UNKNOWN",
-        "STRUCTURED_JSON": "UNKNOWN",
-        "CODE_ASSISTANCE": "UNKNOWN"
-      },
       "lastVerification": "2026-11-18T23:05:45.6103817+01:00",
-      "state": "READY",
       "identity": {
         "layers": 65,
-        "auxiliary": false,
-        "quantization": "Q4_K_M",
         "version": 3,
-        "embedding": false,
         "architecture": "qwen35",
+        "quantization": "Q4_K_M",
+        "embedding": false,
         "context": 262144,
-        "tensorCount": 866,
         "chatTemplatePresent": false,
+        "tensorCount": 866,
+        "auxiliary": false,
         "name": "Qwen3.8 27B 0814"
       },
       "location": "External file retained at its original selected location",
-      "lastSuccessfulLaunch": "2026-11-18T23:40:48.2017724+01:00",
-      "verifiedEngine": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042",
-      "bytes": 16810714464,
-      "id": "02cdc514da334681",
+      "state": "READY",
       "sha256": "f5f1dd8920d417aac2718b0bda3403da274301efdd6760b4f0f4b864ff2ad57d",
-      "originalFileName": "Qwen27B"
-    },
-    {
+      "lastSuccessfulLaunch": "2026-11-18T23:40:48.2017724+01:00",
+      "bytes": 16810714464,
+      "verifiedEngine": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042",
+      "originalFileName": "Qwen27B",
       "capabilities": {
         "TEXT_GENERATION": "TESTED",
         "CHAT": "TESTED",
@@ -45,29 +31,43 @@
         "STRUCTURED_JSON": "UNKNOWN",
         "CODE_ASSISTANCE": "UNKNOWN"
       },
+      "id": "02cdc514da334681"
+    },
+    {
       "lastVerification": "2026-11-18T23:07:18.7705029+01:00",
-      "state": "READY",
       "identity": {
         "layers": 30,
-        "auxiliary": false,
-        "quantization": "Q8_0",
         "version": 3,
-        "embedding": false,
         "architecture": "llama",
+        "quantization": "Q8_0",
+        "embedding": false,
         "context": 8192,
-        "tensorCount": 272,
         "chatTemplatePresent": false,
+        "tensorCount": 272,
+        "auxiliary": false,
         "name": "Smollm2 135M 8k Lc100K Mix1 Ep2"
       },
       "location": "External file retained at its original selected location",
-      "lastSuccessfulLaunch": "2026-11-18T23:42:19.3479345+01:00",
-      "verifiedEngine": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042",
-      "bytes": 144811360,
-      "id": "d456e45171744a23",
+      "state": "READY",
       "sha256": "5a1395716f7913741cc51d98581b9b1228d80987a9f7d3664106742eb06bba83",
-      "originalFileName": "SmolLM2-135M-Instruct-Q8_0.gguf"
+      "lastSuccessfulLaunch": "2026-11-18T23:42:19.3479345+01:00",
+      "bytes": 144811360,
+      "verifiedEngine": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042",
+      "originalFileName": "SmolLM2-135M-Instruct-Q8_0.gguf",
+      "capabilities": {
+        "TEXT_GENERATION": "TESTED",
+        "CHAT": "TESTED",
+        "EMBEDDINGS": "UNKNOWN",
+        "TOOL_CALLING": "UNKNOWN",
+        "VISION": "UNKNOWN",
+        "AUDIO": "UNKNOWN",
+        "STRUCTURED_JSON": "UNKNOWN",
+        "CODE_ASSISTANCE": "UNKNOWN"
+      },
+      "id": "d456e45171744a23"
     }
   ],
+  "schema": 1,
   "status": "VERIFIED",
-  "schema": 1
+  "privacy": "Absolute paths and volume identifiers excluded from public evidence; private original evidence retained locally"
 }

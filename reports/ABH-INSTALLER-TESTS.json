@@ -1,0 +1,226 @@
+{
+  "status": "VERIFIED",
+  "timestamp": "2026-11-18T22:56:36.5586843Z",
+  "installer_sha256": "12c462df17455e12c7eeb63c628620bfafcdfe7c49cbb787c9a4e4cbbdee3212",
+  "installed_executable_sha256": "9d9e72f4e5b6d86ff8baa3309e2b0b938958cc6564ae54686b3e55e0ee5466fc",
+  "checks": [
+    {
+      "status": "VERIFIED",
+      "name": "Silent installation in selected new directory"
+    },
+    {
+      "passed": true,
+      "name": "Start-menu shortcut created"
+    },
+    {
+      "status": "VERIFIED",
+      "name": "Installed edition actual inference and browser chat"
+    },
+    {
+      "passed": true,
+      "name": "Application removed by actual uninstaller"
+    },
+    {
+      "passed": true,
+      "name": "User-generated data and registry preserved"
+    },
+    {
+      "name": "External original model SHA-256 preserved",
+      "sha256": "5a1395716f7913741cc51d98581b9b1228d80987a9f7d3664106742eb06bba83",
+      "passed": true
+    },
+    {
+      "passed": true,
+      "name": "Installed settings stored outside installation directory"
+    }
+  ],
+  "inference": {
+    "status": "VERIFIED",
+    "timestamp": "2026-11-18T23:56:34.452023+01:00",
+    "elapsedSeconds": 10.9780682,
+    "reports": [
+      {
+        "status": "VERIFIED",
+        "model": {
+          "id": "e42f6f80f3fe4465",
+          "name": "Smollm2 135M 8k Lc100K Mix1 Ep2",
+          "architecture": "llama",
+          "bytes": 144811360,
+          "sha256": "5a1395716f7913741cc51d98581b9b1228d80987a9f7d3664106742eb06bba83"
+        },
+        "engine": "134a41d29e4a1d838675e9f55c44a1f5f440074b70e2505a54fb74a6e6850042",
+        "profile": {
+          "name": "SAFE",
+          "backend": "cpu",
+          "threads": 6,
+          "gpuLayers": 0,
+          "context": 2048,
+          "batch": 128,
+          "uBatch": 64,
+          "parallel": 1,
+          "mmap": true,
+          "flashAttention": "auto"
+        },
+        "startup": 3.1890461,
+        "inference": {
+          "success": true,
+          "text": "7 + 5 is 12.",
+          "usage": {
+            "completion_tokens": 10,
+            "prompt_tokens": 45,
+            "total_tokens": 55,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 45,
+            "prompt_ms": 61.168,
+            "prompt_per_token_ms": 1.3592888888888888,
+            "prompt_per_second": 735.6787862934868,
+            "predicted_n": 10,
+            "predicted_ms": 59.319,
+            "predicted_per_token_ms": 6.591,
+            "predicted_per_second": 151.72204521316948
+          },
+          "arithmeticSanityPassed": false,
+          "intelligenceClaim": "No general intelligence or accuracy claim"
+        },
+        "streaming": true,
+        "responses": {
+          "httpStatus": 200,
+          "body": {
+            "completed_at": 1795042590,
+            "created_at": 1795042590,
+            "id": "resp_89MLiGsGOSkjmLR8KNNBkLDMXxZIiHy8",
+            "model": "e42f6f80f3fe4465",
+            "object": "response",
+            "output": [
+              {
+                "content": [
+                  {
+                    "type": "output_text",
+                    "annotations": [],
+                    "logprobs": [],
+                    "text": "Hello! My name is SmolLM, and I am a helpful AI assistant. I am here to help you with"
+                  }
+                ],
+                "id": "msg_NM2mBIaN9kgpkILrLJxtEjPZN6CAx9dX",
+                "role": "assistant",
+                "status": "completed",
+                "type": "message"
+              }
+            ],
+            "status": "completed",
+            "usage": {
+              "input_tokens": 33,
+              "output_tokens": 24,
+              "total_tokens": 57,
+              "input_tokens_details": {
+                "cached_tokens": 26
+              }
+            }
+          }
+        },
+        "calibration": null,
+        "browser": {
+          "status": "PASS",
+          "reply": "The answer would be 15.",
+          "launchFragmentErased": true,
+          "navigation": [
+            {
+              "page": "home",
+              "visible": true
+            },
+            {
+              "page": "models",
+              "visible": true
+            },
+            {
+              "page": "hardware",
+              "visible": true
+            },
+            {
+              "page": "calibration",
+              "visible": true
+            },
+            {
+              "page": "chat",
+              "visible": true
+            },
+            {
+              "page": "api",
+              "visible": true
+            },
+            {
+              "page": "agents",
+              "visible": true
+            },
+            {
+              "page": "workflows",
+              "visible": true
+            },
+            {
+              "page": "diagnostics",
+              "visible": true
+            },
+            {
+              "page": "settings",
+              "visible": true
+            },
+            {
+              "page": "help",
+              "visible": true
+            },
+            {
+              "page": "about",
+              "visible": true
+            }
+          ],
+          "conversationPersisted": true,
+          "screenshot": "[private local path redacted]",
+          "browser": "installed Edge in an isolated test profile",
+          "title": "AI BLACK HOLE · ABH"
+        },
+        "codex": null,
+        "shutdown": {
+          "clean": true,
+          "pid": 12784,
+          "port": 54261,
+          "processExited": true,
+          "detail": {
+            "timestamp": "2026-11-18T23:56:34.4020984+01:00",
+            "pid": 12784,
+            "port": 54261,
+            "graceful": true,
+            "exitCode": 0,
+            "method": "CTRL_C_EVENT"
+          }
+        }
+      }
+    ],
+    "hardware": {
+      "cpu": "AMD Ryzen 5 5600G with Radeon Graphics",
+      "threads": 12,
+      "totalRam": 68047552512,
+      "freeRam": 38455943168,
+      "gpu": "NVIDIA GeForce RTX 3050",
+      "vramMiB": 6144,
+      "freeVramMiB": 1501,
+      "driver": "621.24",
+      "fingerprint": "7c7d9c49c2c0b57b3b91439c",
+      "physicalCores": 6,
+      "operatingSystem": "Microsoft Windows NT 10.0.29695.0",
+      "architecture": "X64",
+      "memoryPressurePercent": 43.49,
+      "displayAdapters": [
+        "NVIDIA GeForce RTX 3050"
+      ]
+    },
+    "testedDistinctArchitectures": [
+      "llama"
+    ]
+  },
+  "limitations": "Tested under the current Windows account. Standard-user account and other Windows versions were not separately available."
+}

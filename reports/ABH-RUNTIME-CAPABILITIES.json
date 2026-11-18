@@ -1,16 +1,16 @@
 {
-  "splitLoading": "UNSUPPORTED",
-  "npu": "UNSUPPORTED",
-  "runtimeManifest": "research/runtime-provenance.json",
+  "managedOtherBackends": "UNSUPPORTED",
   "version": "0.9.0-dev, build 1, commit 6c01da627",
   "embedding": "NOT TESTED",
+  "splitLoading": "UNSUPPORTED",
+  "runtimeManifest": "research/runtime-provenance.json",
   "vision": "UNSUPPORTED",
+  "primary": "llama.cpp",
+  "audio": "UNSUPPORTED",
+  "npu": "UNSUPPORTED",
+  "status": "VERIFIED",
   "backends": [
     "cpu",
     "cuda"
-  ],
-  "primary": "llama.cpp",
-  "status": "VERIFIED",
-  "managedOtherBackends": "UNSUPPORTED",
-  "audio": "UNSUPPORTED"
+  ]
 }

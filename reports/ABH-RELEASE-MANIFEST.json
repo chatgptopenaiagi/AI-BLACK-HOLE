@@ -1,0 +1,50 @@
+{
+  "schema": "abh-release/1",
+  "product": "AI BLACK HOLE",
+  "version": "2.0.0-beta.2",
+  "status": "VERIFIED",
+  "timestamp": "2026-11-18T23:02:39.7297704Z",
+  "build": {
+    "version": "2.0.0-beta.2",
+    "timestamp_utc": "2026-11-18T22:46:26.3250028Z",
+    "source_commit": "c23f3249330629f4d604755aa008ba2dd4831288",
+    "source_dirty": false,
+    "executable_sha256": "9d9e72f4e5b6d86ff8baa3309e2b0b938958cc6564ae54686b3e55e0ee5466fc",
+    "sdk": "8.0.427",
+    "self_contained": true
+  },
+  "assets": [
+    {
+      "name": "AI-BLACK-HOLE-2.0.0-beta.2-WINDOWS-X64-PORTABLE.zip",
+      "bytes": 1030002808,
+      "sha256": "15dd0e114babb7eabfa130a9296461a00da27874ce9b31d85b92e97c0bc85182"
+    },
+    {
+      "name": "AI-BLACK-HOLE-2.0.0-beta.2-SETUP.exe",
+      "bytes": 1006725798,
+      "sha256": "12c462df17455e12c7eeb63c628620bfafcdfe7c49cbb787c9a4e4cbbdee3212"
+    },
+    {
+      "name": "AI-BLACK-HOLE-2.0.0-beta.2-FILES.json",
+      "bytes": 17362,
+      "sha256": "897d7d5b373cbf88758aea988848a325e51e636b0fdfd9983349dceac4a0cf9e"
+    }
+  ],
+  "archive_validation": {
+    "extracted_files": 110,
+    "timestamp": "2026-11-18T22:58:54.9455297Z",
+    "status": "VERIFIED",
+    "real_inference": "ABH-ARCHIVE-INFERENCE.json",
+    "global_dotnet_root_disabled": true,
+    "all_sha256_match": true,
+    "archive_integrity": "7-Zip test passed"
+  },
+  "portable_acceptance": "ABH-PORTABILITY-TESTS.json",
+  "installer_acceptance": "ABH-INSTALLER-TESTS.json",
+  "contains_model_weights": false,
+  "contains_private_state": false,
+  "models_distributed_separately": true,
+  "unsigned": true,
+  "core_file_manifest": "AI-BLACK-HOLE-2.0.0-beta.2-FILES.json",
+  "documentation": "Post-build verification receipts are external to the frozen archives to avoid changing their hashes"
+}

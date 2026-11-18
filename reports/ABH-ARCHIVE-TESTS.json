@@ -1,0 +1,9 @@
+{
+  "extracted_files": 110,
+  "timestamp": "2026-11-18T22:58:54.9455297Z",
+  "status": "VERIFIED",
+  "real_inference": "ABH-ARCHIVE-INFERENCE.json",
+  "global_dotnet_root_disabled": true,
+  "all_sha256_match": true,
+  "archive_integrity": "7-Zip test passed"
+}

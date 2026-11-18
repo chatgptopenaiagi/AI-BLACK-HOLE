@@ -1,0 +1,86 @@
+{
+  "status": "VERIFIED",
+  "timestamp": "2026-11-18T22:47:10.5422865Z",
+  "original_model_files": [
+    {
+      "name": "Blob001",
+      "bytes": 215,
+      "sha256": "492b2922d38e553cabc2d319345644ed482874fbf5e5c9e4495cbf8e17b0cf5f",
+      "size_matches": true,
+      "modified_matches": true,
+      "sha256_matches": true
+    },
+    {
+      "name": "Blob002",
+      "bytes": 11345,
+      "sha256": "4c6a8e842ef0d8504549facfb03f1273a8d0022991519bc1888522cc1a5517d1",
+      "size_matches": true,
+      "modified_matches": true,
+      "sha256_matches": true
+    },
+    {
+      "name": "Blob003",
+      "bytes": 114,
+      "sha256": "906ee87bde6cff7bf3c3b1550f55cbbec261e027187fbb9f511f908ffc418334",
+      "size_matches": true,
+      "modified_matches": true,
+      "sha256_matches": true
+    },
+    {
+      "name": "Blob004",
+      "bytes": 986,
+      "sha256": "aaee06c39dcf2437cde036998d960e1fc1494b8191be7cc9657d01e509097813",
+      "size_matches": true,
+      "modified_matches": true,
+      "sha256_matches": true
+    },
+    {
+      "name": "Blob005",
+      "bytes": 931146016,
+      "sha256": "ac3714bfdddeca31351f2752bf1a63f266f4df87c0b68c895e44945ca704448e",
+      "size_matches": true,
+      "modified_matches": true,
+      "sha256_matches": true
+    },
+    {
+      "name": "Blob006",
+      "bytes": 470,
+      "sha256": "e118e4d12a705129abfcd3076c3a420108987e7150c037a92515d3e0091e0eb1",
+      "size_matches": true,
+      "modified_matches": true,
+      "sha256_matches": true
+    },
+    {
+      "name": "Qwen27B",
+      "bytes": 16810714464,
+      "sha256": "f5f1dd8920d417aac2718b0bda3403da274301efdd6760b4f0f4b864ff2ad57d",
+      "size_matches": true,
+      "modified_matches": true,
+      "sha256_matches": true
+    }
+  ],
+  "scope": "Full SHA-256 and original metadata rechecked; no model weights changed",
+  "original_release": {
+    "sha256": "512625f54536109ac9cf92916fcf4991b84497fe5dc19b737256d2fabeb4f583",
+    "status": "VERIFIED",
+    "expected_sha256": "512625f54536109ac9cf92916fcf4991b84497fe5dc19b737256d2fabeb4f583",
+    "timestamp": "2026-11-18T22:51:53.2197467Z",
+    "original_release_archive_unchanged": true
+  },
+  "qwen_source": {
+    "abh_edits": false,
+    "head": "0fdece1e90560bbe6b180ffd0d253aac9da8b197",
+    "working_tree_clean": true
+  },
+  "normal_codex_configuration": {
+    "abh_profile": "isolated",
+    "last_write_utc": "2026-11-17T11:36:51.053042Z",
+    "mission_started_utc": "2026-11-18T21:31:15.6006524Z",
+    "unchanged_during_mission": true
+  },
+  "arx_executable": {
+    "manifest_match": true,
+    "sha256": "72752a5a5e9f35a7fc10bd9819c86984e9a391d274fc33ead4ae3fd38e28fd43",
+    "status": "VERIFIED"
+  }
+}

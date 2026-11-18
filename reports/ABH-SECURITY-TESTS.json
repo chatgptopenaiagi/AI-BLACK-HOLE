@@ -503,6 +503,6 @@
       "detail": null
     }
   ],
-  "timestamp": "2026-11-18T23:29:51.885437+01:00",
+  "timestamp": "2026-11-18T23:48:05.1770237+01:00",
   "scope": "Synthetic fixtures, real local HTTP and provider mock transports. No real inference or paid provider call in this suite."
 }

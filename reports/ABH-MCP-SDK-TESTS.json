@@ -14,7 +14,7 @@
       "realToolResponse": [
         {
           "type": "text",
-          "text": "{\r\n  \u0022modelId\u0022: null,\r\n  \u0022modelName\u0022: null,\r\n  \u0022ready\u0022: false,\r\n  \u0022status\u0022: \u0022Stopped\u0022,\r\n  \u0022pid\u0022: 0,\r\n  \u0022port\u0022: 0,\r\n  \u0022profile\u0022: {\r\n    \u0022name\u0022: \u0022SAFE\u0022,\r\n    \u0022backend\u0022: \u0022cpu\u0022,\r\n    \u0022threads\u0022: 6,\r\n    \u0022gpuLayers\u0022: 0,\r\n    \u0022context\u0022: 2048,\r\n    \u0022batch\u0022: 128,\r\n    \u0022uBatch\u0022: 64,\r\n    \u0022parallel\u0022: 1,\r\n    \u0022mmap\u0022: true,\r\n    \u0022flashAttention\u0022: \u0022auto\u0022\r\n  },\r\n  \u0022startupSeconds\u0022: 0,\r\n  \u0022memoryBytes\u0022: 8192,\r\n  \u0022peakWorkingSet\u0022: 8192,\r\n  \u0022engineFingerprint\u0022: \u0022\u0022\r\n}"
+          "text": "{\r\n  \"modelId\": null,\r\n  \"modelName\": null,\r\n  \"ready\": false,\r\n  \"status\": \"Stopped\",\r\n  \"pid\": 0,\r\n  \"port\": 0,\r\n  \"profile\": {\r\n    \"name\": \"SAFE\",\r\n    \"backend\": \"cpu\",\r\n    \"threads\": 6,\r\n    \"gpuLayers\": 0,\r\n    \"context\": 2048,\r\n    \"batch\": 128,\r\n    \"uBatch\": 64,\r\n    \"parallel\": 1,\r\n    \"mmap\": true,\r\n    \"flashAttention\": \"auto\"\r\n  },\r\n  \"startupSeconds\": 0,\r\n  \"memoryBytes\": 0,\r\n  \"peakWorkingSet\": 0,\r\n  \"engineFingerprint\": \"\"\r\n}"
         }
       ],
       "unknownModelRejected": true
@@ -31,7 +31,7 @@
       "realToolResponse": [
         {
           "type": "text",
-          "text": "{\r\n  \u0022modelId\u0022: null,\r\n  \u0022modelName\u0022: null,\r\n  \u0022ready\u0022: false,\r\n  \u0022status\u0022: \u0022Stopped\u0022,\r\n  \u0022pid\u0022: 0,\r\n  \u0022port\u0022: 0,\r\n  \u0022profile\u0022: {\r\n    \u0022name\u0022: \u0022SAFE\u0022,\r\n    \u0022backend\u0022: \u0022cpu\u0022,\r\n    \u0022threads\u0022: 6,\r\n    \u0022gpuLayers\u0022: 0,\r\n    \u0022context\u0022: 2048,\r\n    \u0022batch\u0022: 128,\r\n    \u0022uBatch\u0022: 64,\r\n    \u0022parallel\u0022: 1,\r\n    \u0022mmap\u0022: true,\r\n    \u0022flashAttention\u0022: \u0022auto\u0022\r\n  },\r\n  \u0022startupSeconds\u0022: 0,\r\n  \u0022memoryBytes\u0022: 8192,\r\n  \u0022peakWorkingSet\u0022: 8192,\r\n  \u0022engineFingerprint\u0022: \u0022\u0022\r\n}"
+          "text": "{\r\n  \"modelId\": null,\r\n  \"modelName\": null,\r\n  \"ready\": false,\r\n  \"status\": \"Stopped\",\r\n  \"pid\": 0,\r\n  \"port\": 0,\r\n  \"profile\": {\r\n    \"name\": \"SAFE\",\r\n    \"backend\": \"cpu\",\r\n    \"threads\": 6,\r\n    \"gpuLayers\": 0,\r\n    \"context\": 2048,\r\n    \"batch\": 128,\r\n    \"uBatch\": 64,\r\n    \"parallel\": 1,\r\n    \"mmap\": true,\r\n    \"flashAttention\": \"auto\"\r\n  },\r\n  \"startupSeconds\": 0,\r\n  \"memoryBytes\": 0,\r\n  \"peakWorkingSet\": 0,\r\n  \"engineFingerprint\": \"\"\r\n}"
         }
       ],
       "unknownModelRejected": true
