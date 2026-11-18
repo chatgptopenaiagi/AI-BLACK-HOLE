@@ -1,0 +1,32 @@
+[
+  {
+    "component": "Security.cs",
+    "source_commit": "1b074bf82a6d1a4700e06841f5ce46b90c17d9cf",
+    "source_sha256": "276fd10f3fd5253652924eaf7ffea7bbf59d441d16c990b0b4d370642dcabb97",
+    "reuse": "Adapted; ABH acceptance must be run independently"
+  },
+  {
+    "component": "ResponseCompatibility.cs",
+    "source_commit": "1b074bf82a6d1a4700e06841f5ce46b90c17d9cf",
+    "source_sha256": "85210f03f0fcc9cf56f66fedd51f2b82d5f1579d8716586a20de0c3edb3d2abe",
+    "reuse": "Adapted; ABH acceptance must be run independently"
+  },
+  {
+    "component": "Providers.cs",
+    "source_commit": "1b074bf82a6d1a4700e06841f5ce46b90c17d9cf",
+    "source_sha256": "50f496410482eaa0cdeba965fffbf94940cfd626390eb04f8b2bd1895d6798c9",
+    "reuse": "Adapted; ABH acceptance must be run independently"
+  },
+  {
+    "component": "Engine.cs",
+    "source_commit": "1b074bf82a6d1a4700e06841f5ce46b90c17d9cf",
+    "source_sha256": "98c1d2c160778b76a58f581711ad2a50382c92cd3754f3b4f3680b12ee5d978c",
+    "reuse": "Adapted; ABH acceptance must be run independently"
+  },
+  {
+    "component": "Core.cs",
+    "source_commit": "1b074bf82a6d1a4700e06841f5ce46b90c17d9cf",
+    "source_sha256": "aa38c5ee595a828072dc8a5c905af5e4ca2086809b2c10186ea7dc2e57c01bd5",
+    "reuse": "Adapted; ABH acceptance must be run independently"
+  }
+]
