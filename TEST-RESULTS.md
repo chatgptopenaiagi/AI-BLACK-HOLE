@@ -9,3 +9,5 @@ The official TypeScript MCP SDK 1.32.2 communicated over STDIO and Streamable HT
 Synthetic tests cover registry corruption, identity change/reconnection, cancellation, scoped authentication/rotation/revocation, encrypted vault behavior, namespace preservation, unsupported tools, origin rejection, MCP validation, bounded workflow execution and provider protocol/error/budget behavior. Real-model recovery tests separately exercise invalid candidates, rollback, crash detection, restart and clean stop.
 
 Packaging, installation, relocation and final verification outcomes are recorded in their dedicated reports. No USB hardware was available during initial discovery; fixed-disk relocation must not be called a USB test. Live DRAGONHYDRA operations and paid-provider connections are not inferred from mocks or schema inspection. See the final mission report for remaining partial/unsupported capabilities.
+
+GitHub-hosted Windows build and protocol checks are recorded in [ABH-GITHUB-ACTIONS.json](reports/ABH-GITHUB-ACTIONS.json). Hosted checks do not test the owner's GPU or real model files; those results come from the separate local acceptance runs.

@@ -24,7 +24,7 @@ static class Connectors
         new("ARX", "Optional real scanner and Machine DNA import/export", ["isolated CLI deep scan", "schema evidence exchange", "installed product detection"], ["compatibility verdict without relevant execution"], "Optional configured Python/source; machine evidence is separate from GGUF inference", false),
         new("mcp-server", "MCP clients → ABH", ["stdio", "Streamable HTTP", "registered model tools"], ["arbitrary filesystem access", "shell execution"], "Authenticated local HTTP / process-owner stdio", false),
         new("mcp-client", "ABH → selected MCP HTTP server", ["discovery", "list tools", "explicit tool call"], ["automatic recursive tool use", "remote server commands"], "Loopback approved endpoint only", false),
-        new("generic-local", "ABH → selected local endpoint", ["model listing", "chat completions", "timeout", "cancellation"], ["protocol equivalence guarantee"], "Loopback endpoint only", false)
+        new("generic-local", "ABH → selected local endpoint", ["chat completions", "timeout", "cancellation"], ["remote model listing", "protocol equivalence guarantee"], "Loopback endpoint only; enter the remote model ID explicitly", false)
     ];
     public static Uri LocalUri(string input)
     {

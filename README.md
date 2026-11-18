@@ -4,6 +4,8 @@
 
 One universal wrench. Many AI models. Independent intelligence engines.
 
+The French-wrench metaphor is an adjustable tool: ABH adapts to individually verified model and engine combinations rather than assuming every GGUF has the same capabilities.
+
 ABH adapts its runtime configuration to a selected compatible GGUF and the available machine. Register a model where it already lives, inspect its metadata, verify its identity, calibrate bounded CPU/GPU candidates, and open local chat. The original weights stay in place.
 
 ![ABH native model selector](docs/images/native.png)

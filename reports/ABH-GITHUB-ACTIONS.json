@@ -1,0 +1,14 @@
+{
+  "run_url": "https://github.com/chatgptopenaiagi/AI-BLACK-HOLE/actions/runs/44417436934",
+  "status": "VERIFIED",
+  "real_models_tested_on_hosted_runner": false,
+  "synthetic_checks": 59,
+  "source_commit": "4a182925ccc65be692a92f36580b1d582516cfd0",
+  "scope": "Hosted Windows runner: self-contained source build, synthetic/security/provider mock checks and real MCP SDK transports only",
+  "failed": 0,
+  "owner_gpu_verified_by_hosted_runner": false,
+  "mcp_transports": [
+    "stdio",
+    "streamable-http"
+  ]
+}

@@ -57,7 +57,7 @@ The only downloaded weights were the explicitly selected SmolLM2 Q8_0 file from 
 
 ## Artifact traceability
 
-The compiled application source commit is `c23f3249330629f4d604755aa008ba2dd4831288`; its build recorded a clean source tree. Executable SHA-256 is `9d9e72f4e5b6d86ff8baa3309e2b0b938958cc6564ae54686b3e55e0ee5466fc`. Later source commits add acceptance scripts and evidence only; compiled application sources are checked against that build commit before publication. The release manifest identifies both assets and their hashes.
+The portable root's `build-info.json` records the exact compiled source commit, clean-tree status and executable SHA-256. The external release manifest identifies both packaged assets and their hashes. Later documentation commits may add verification receipts without changing the compiled application. Earlier acceptance reports retain their own build identities; final-package evidence is identified separately.
 
 Release assets contain application/runtime files, documentation and sanitized evidence. They exclude weights, private paths, vaults, keys, conversations and unrelated workstation logs. The optional large-model workflow is separate. Both primary assets are below GitHub's individual 2 GiB limit.
 

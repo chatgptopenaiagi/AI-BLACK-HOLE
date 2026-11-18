@@ -11,7 +11,7 @@
 | DRAGONHYDRA | ABH → read-only versioned discovery | Identity checks and capability endpoint; unavailable services remain unverified |
 | ARX | Optional scanner → ABH | Real pinned ARX 4.0.1b1 deep scan through isolated Python; import/export also supported |
 | MCP | Both directions | Real official SDK interoperability; client actions explicitly selected |
-| Generic local | ABH → configured loopback HTTP | Explicit chat request; no guarantee of every server dialect |
+| Generic local | ABH → configured loopback HTTP | Explicit chat request with a manually entered model ID; remote model listing is unsupported; no guarantee of every server dialect |
 
 Cloud is disabled by default. Configure each provider's separate credential in the portable encrypted vault, model ID, token/call limits and positive session/per-request spending reservations. Review the exact content before every request. Reservations are retained after failure/cancellation and bound the number of approved requests; they are not an invoice or guaranteed provider billing cap. Configure provider-side limits for hard spending limits. Provider usage and native errors are retained. No automatic retries occur.
 
