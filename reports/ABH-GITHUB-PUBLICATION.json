@@ -1,0 +1,124 @@
+{
+  "schema": "abh-publication/1",
+  "status": "VERIFIED",
+  "verified_utc": "2026-11-19T00:27:29.143107Z",
+  "repository": {
+    "isPrivate": false,
+    "nameWithOwner": "chatgptopenaiagi/AI-BLACK-HOLE",
+    "url": "https://github.com/chatgptopenaiagi/AI-BLACK-HOLE"
+  },
+  "tag": "v2.0.0-beta.2",
+  "tag_commit": "b1a372270098ae91d87fe416a6551d95bcdce340",
+  "compiled_source_commit": "dd072a4266694caec53985eab0b375b87fabd03f",
+  "executable_sha256": "1302d7b56a6d719a1029ca162323ed49fd723b5003a6ace9f7db38f3bfe63e10",
+  "release": {
+    "assets": [
+      {
+        "apiUrl": "https://api.github.com/repos/chatgptopenaiagi/AI-BLACK-HOLE/releases/assets/765448056",
+        "contentType": "application/json",
+        "createdAt": "2026-11-18T23:43:23Z",
+        "digest": "sha256:0696d283b601a3bb30c44dbdfd7be62e05b04752c1bf05531b021b7f3be6677c",
+        "downloadCount": 0,
+        "id": "RA_kwDOVzox6M4tn894",
+        "label": "",
+        "name": "ABH-RELEASE-MANIFEST.json",
+        "size": 1935,
+        "state": "uploaded",
+        "updatedAt": "2026-11-18T23:43:24Z",
+        "url": "https://github.com/chatgptopenaiagi/AI-BLACK-HOLE/releases/download/v2.0.0-beta.2/ABH-RELEASE-MANIFEST.json"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/chatgptopenaiagi/AI-BLACK-HOLE/releases/assets/765448119",
+        "contentType": "application/json",
+        "createdAt": "2026-11-18T23:43:24Z",
+        "digest": "sha256:ddd027cd2086f35bdef83c38a3332ee3fbff10dddd9e8d99c7bd9a4f259794ea",
+        "downloadCount": 0,
+        "id": "RA_kwDOVzox6M4tn8-3",
+        "label": "",
+        "name": "AI-BLACK-HOLE-2.0.0-beta.2-FILES.json",
+        "size": 18659,
+        "state": "uploaded",
+        "updatedAt": "2026-11-18T23:43:26Z",
+        "url": "https://github.com/chatgptopenaiagi/AI-BLACK-HOLE/releases/download/v2.0.0-beta.2/AI-BLACK-HOLE-2.0.0-beta.2-FILES.json"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/chatgptopenaiagi/AI-BLACK-HOLE/releases/assets/765447938",
+        "contentType": "application/x-msdownload",
+        "createdAt": "2026-11-18T23:43:21Z",
+        "digest": "sha256:8436f4cc145023e7f56a85a77ada6c9b794bd4a42141d31fe928e71d4f1656f7",
+        "downloadCount": 0,
+        "id": "RA_kwDOVzox6M4tn88C",
+        "label": "",
+        "name": "AI-BLACK-HOLE-2.0.0-beta.2-SETUP.exe",
+        "size": 1006734585,
+        "state": "uploaded",
+        "updatedAt": "2026-11-19T00:27:05Z",
+        "url": "https://github.com/chatgptopenaiagi/AI-BLACK-HOLE/releases/download/v2.0.0-beta.2/AI-BLACK-HOLE-2.0.0-beta.2-SETUP.exe"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/chatgptopenaiagi/AI-BLACK-HOLE/releases/assets/765447939",
+        "contentType": "application/zip",
+        "createdAt": "2026-11-18T23:43:21Z",
+        "digest": "sha256:1508961f599bd380805cb8245b8c0b8df90d2f046fb41ac5f7d411040996335b",
+        "downloadCount": 0,
+        "id": "RA_kwDOVzox6M4tn88D",
+        "label": "",
+        "name": "AI-BLACK-HOLE-2.0.0-beta.2-WINDOWS-X64-PORTABLE.zip",
+        "size": 1030017874,
+        "state": "uploaded",
+        "updatedAt": "2026-11-19T00:27:22Z",
+        "url": "https://github.com/chatgptopenaiagi/AI-BLACK-HOLE/releases/download/v2.0.0-beta.2/AI-BLACK-HOLE-2.0.0-beta.2-WINDOWS-X64-PORTABLE.zip"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/chatgptopenaiagi/AI-BLACK-HOLE/releases/assets/765448153",
+        "contentType": "text/plain; charset=utf-8",
+        "createdAt": "2026-11-18T23:43:24Z",
+        "digest": "sha256:83ef41dd8d1729e4b9793fa4245123d93cb243bf60f341ee48397f70574c8c83",
+        "downloadCount": 0,
+        "id": "RA_kwDOVzox6M4tn8_Z",
+        "label": "",
+        "name": "SHA256SUMS.txt",
+        "size": 421,
+        "state": "uploaded",
+        "updatedAt": "2026-11-18T23:43:24Z",
+        "url": "https://github.com/chatgptopenaiagi/AI-BLACK-HOLE/releases/download/v2.0.0-beta.2/SHA256SUMS.txt"
+      }
+    ],
+    "isDraft": false,
+    "isPrerelease": true,
+    "publishedAt": "2026-11-19T00:27:26Z",
+    "tagName": "v2.0.0-beta.2",
+    "url": "https://github.com/chatgptopenaiagi/AI-BLACK-HOLE/releases/tag/v2.0.0-beta.2"
+  },
+  "asset_digest_verification": "All five GitHub server digests and sizes match the verified local files",
+  "github_actions": [
+    {
+      "conclusion": "success",
+      "databaseId": 44422438808,
+      "headSha": "b1a372270098ae91d87fe416a6551d95bcdce340",
+      "status": "completed",
+      "url": "https://github.com/chatgptopenaiagi/AI-BLACK-HOLE/actions/runs/44422438808"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 44422433865,
+      "headSha": "b1a372270098ae91d87fe416a6551d95bcdce340",
+      "status": "completed",
+      "url": "https://github.com/chatgptopenaiagi/AI-BLACK-HOLE/actions/runs/44422433865"
+    }
+  ],
+  "prior_draft_tag_commit": "4a182925ccc65be692a92f36580b1d582516cfd0",
+  "draft_correction": "Generic local connector capability label corrected, rebuilt and retested before publication",
+  "model_weights_included": false,
+  "private_state_included": false,
+  "anonymous_access": {
+    "utc": "2026-11-19T00:27:48.1098534Z",
+    "anonymous_release_http_status": 200,
+    "download_url": "https://github.com/chatgptopenaiagi/AI-BLACK-HOLE/releases/download/v2.0.0-beta.2/SHA256SUMS.txt",
+    "sha256": "83ef41dd8d1729e4b9793fa4245123d93cb243bf60f341ee48397f70574c8c83",
+    "release_url": "https://github.com/chatgptopenaiagi/AI-BLACK-HOLE/releases/tag/v2.0.0-beta.2",
+    "status": "VERIFIED",
+    "anonymous_manifest_download": true
+  },
+  "tag_application_sources_match_compiled_commit": true
+}

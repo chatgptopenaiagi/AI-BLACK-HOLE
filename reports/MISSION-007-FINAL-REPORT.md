@@ -1,6 +1,6 @@
 # MISSION 007 — AI BLACK HOLE 2.0.0-beta.2
 
-**Universal two-model execution: VERIFIED. Windows beta artifacts: VERIFIED. Expanded mission coverage: PARTIAL.** Publication is confirmed separately by `reports/ABH-GITHUB-PUBLICATION.json` after the release upload.
+**Universal two-model execution: VERIFIED. Windows beta artifacts and public prerelease: VERIFIED. Expanded mission coverage: PARTIAL.** [v2.0.0-beta.2](https://github.com/chatgptopenaiagi/AI-BLACK-HOLE/releases/tag/v2.0.0-beta.2) was published on 2026-11-19 after all five GitHub asset sizes and SHA-256 digests matched the local verified artifacts. Anonymous release-page access and checksum-manifest download also passed. The receipt is `reports/ABH-GITHUB-PUBLICATION.json`.
 
 ABH selected Qwen27B and SmolLM2 through the same native model selector, used the same model-independent llama.cpp adapter, produced genuine local text and browser responses, and shut its engine down cleanly. The models use different GGUF architectures (`qwen35` and `llama`). Their original files remained at their selected locations with matching SHA-256 fingerprints. This proves the demonstrated multi-model capability; it does not establish compatibility with every GGUF or correctness of every answer.
 
@@ -53,11 +53,13 @@ The only downloaded weights were the explicitly selected SmolLM2 Q8_0 file from 
 | Windows installer | VERIFIED | Install, shortcut, actual inference and preserving uninstall |
 | Storage, credentials and history | VERIFIED | Atomic versioned documents, exclusive state lease, encrypted vault and persisted conversations |
 | Source research and provenance | VERIFIED | Pinned completed snapshot, official upstream research and runtime file hashes |
-| Public GitHub source and prerelease | NOT TESTED | Replaced with publication receipt after authenticated upload and readback |
+| Public GitHub source and prerelease | VERIFIED | Public repository, corrected source tag, five matching server asset digests, successful hosted checks and anonymous release/download access |
 
 ## Artifact traceability
 
 The portable root's `build-info.json` records the exact compiled source commit, clean-tree status and executable SHA-256. The external release manifest identifies both packaged assets and their hashes. Later documentation commits may add verification receipts without changing the compiled application. Earlier acceptance reports retain their own build identities; final-package evidence is identified separately.
+
+Final compiled source: `dd072a4266694caec53985eab0b375b87fabd03f`. Executable SHA-256: `1302d7b56a6d719a1029ca162323ed49fd723b5003a6ace9f7db38f3bfe63e10`. Published tag commit: `b1a372270098ae91d87fe416a6551d95bcdce340`; its application sources match the compiled source exactly. The tag also records subsequent package-verification evidence. Final publication receipts are added to the main branch after publication without moving the published tag.
 
 Release assets contain application/runtime files, documentation and sanitized evidence. They exclude weights, private paths, vaults, keys, conversations and unrelated workstation logs. The optional large-model workflow is separate. Both primary assets are below GitHub's individual 2 GiB limit.
 
